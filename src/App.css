@@ -1,0 +1,85 @@
+
+
+.app {
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-image: url("test1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: row;
+  gap: 20px;
+  height: 100vh;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #f8f9fd;
+}
+
+input[type="text"],
+input[type="password"] {
+  height: 25px;
+  border: 1px solid #000000;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: #d20f01;
+  border: 1px solid #d20f01;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background: #f06c6c;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  background-color: white;
+  opacity: 0.9;
+  width: 27%;
+  height: 100%;
+  padding-left: 40px;
+  padding-top: 200px;
+  padding-right: 100px;
+  margin-right: 0%;
+}
+
+.list-container {
+  display: flex;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("insert-logo-here-red.jpg");
+}
+
+.input-container {
+  display: flex;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px;
+}
+
+
+
