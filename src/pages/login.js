@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/login.css";
 
-function LoginPage(){
-    const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate= useNavigate();
+function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  function handleClick(){
-    navigate("/dashboard")
+  function handleClick() {
+    navigate("/dashboard");
   }
 
   const handleEmailChange = (event) => {
@@ -24,16 +24,17 @@ function LoginPage(){
     event.preventDefault();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
 
     if (!emailRegex.test(email)) {
-      setError('Please enter a valid email address.');
+      setError("Please enter a valid email address.");
       return;
     }
 
     if (!passwordRegex.test(password)) {
       setError(
-        'Please enter a password that is at least 8 characters long and contains at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character: !@#$%^&*.'
+        "Please enter a password that is at least 8 characters long and contains at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character: !@#$%^&*."
       );
       return;
     }
@@ -44,7 +45,7 @@ function LoginPage(){
 
     console.log(`Email: ${email}, Password: ${password}`);
     return handleClick();
-};
+  };
 
   return (
     <div className="login-page">
@@ -69,13 +70,18 @@ function LoginPage(){
             onChange={handlePasswordChange}
           />
         </div>
-        <button type="submit" >Login</button>
+        <button type="submit">Login</button>
       </form>
       <div className="register-link">
-      <p>Don't have an account? <a className='login-link' href="/register">Register</a></p>
+        <p>
+          Don't have an account?{" "}
+          <a className="login-link" href="/register">
+            Register
+          </a>
+        </p>
       </div>
     </div>
   );
-};
+}
 
 export default LoginPage;

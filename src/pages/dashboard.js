@@ -1,27 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import '../css/dashboard.css';
-
+import React, { useState, useEffect } from "react";
+import "../css/dashboard.css";
+import ProductItem from "../components/product-item/product-item";
+import { useQuery } from "react-query";
+import { getCars } from "../api/cars.service";
 function Dashboard() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(response => response.json())
-      .then(data => {console.log(data);setProducts(data);});
-  }, []);
-
+  const { data: products, error, isLoading } = useQuery("getCars", getCars);
+  
+  if (error) {
+    return <div>Error!</div>;
+  }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="dashboard-container">
       <h1 className="dashboard-title">Product List</h1>
       <div className="dashboard-list">
-        {products.map(product => (
-          <div className="dashboard-item" key={product.id}>
-            <p><img src={product.image} alt="#"/></p>
-            <h3 className="dashboard-item-title">{product.title}</h3>
-            <p className="dashboard-item-description">{product.description}</p>
-            <p className="dashboard-item-price">Price: ${product.price}</p>
-            
-          </div>
+        {products.map((product) => (
+          <ProductItem
+            id={product.id}
+            image={product.image}
+            title={product.title}
+            description={product.description}
+            price={product.price}
+          />
         ))}
       </div>
     </div>
