@@ -1,0 +1,211 @@
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Navigation Bar */
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  background-color: #000;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #ff0000;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  background-color: #000;
+  color: #fff;
+}
+
+.header h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.header p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.header .btn {
+  padding: 10px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.header .btn:hover {
+  background-color: #fff;
+  color: #ff0000;
+  cursor: pointer;
+}
+
+/* Services */
+
+.services {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+.services h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  margin: 0 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+/* About */
+
+.about {
+  padding: 80px 20px;
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.about h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.about p {
+  font-size: 24px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.about .btn {
+  padding: 10px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  color: #ff0000;
+  display: block;
+  margin: 0 auto;
+}
+
+.about .btn:hover {
+  background-color: #ff0000;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Contact */
+
+.contact {
+  padding: 80px 20px;
+  background-color: #000;
+  color: #fff;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+#message{
+  width: 400px;
+  height: 50px;
+  margin: 20px;
+
+}
+#email{
+  width: 200px;
+  height: 30px;
+  margin: 20px;
+
+}
+#name{
+  width: 200px;
+  height: 30px;
+  margin: 20px;
+
+}
+
+.contact label {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-align: left;
+  width: 2px;
+  height: 2px;
+}
+#msgbtn{
+  margin: 20px;
+  text-align: center;
+  height: 20px;
+  width: 200px;
+}
+#msgbtn:hover {
+  border-color: black;
+  border-width: 5px;
+
+  background-color: #ff0000;
+  color: #fff;
+  cursor: pointer;
+}
