@@ -1,0 +1,141 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1d2029;
+    text-align: center;
+  }
+  
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1d2029;
+  }
+  
+  input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  button {
+    background-color: #0c9dff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    background-color: #0b84e8;
+  }
+  
+  .error {
+    color: #f5222d;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .login-image {
+    width: 100%;
+    height: 250px;
+    background-image: url(https://i.imgur.com/gnNthkM.png);
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .login-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+  .form-field label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  .form-field input {
+    width: 100%;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .form-field input[type="email"],
+  .form-field input[type="password"] {
+    padding: 10px 15px;
+  }
+  
+  .form-field button {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    padding: 12px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .login-page {
+      margin: 30px auto;
+      max-width: 100%;
+      border-radius: 0px;
+    }
+  
+    .login-page-content {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  
+    .login-image {
+      height: 200px;
+    }
+  }
+  .login-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .login-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
