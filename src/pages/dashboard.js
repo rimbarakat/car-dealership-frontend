@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../css/dashboard.css";
 import ProductItem from "../components/product-item/product-item";
 import { useQuery } from "react-query";
