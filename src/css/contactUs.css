@@ -1,0 +1,30 @@
+.contactUs-container {
+    margin: 50px auto;
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  .contactUs-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1d2029;
+    margin-bottom: 20px;
+  }
+  
+  .contactUs-container p {
+    font-size: 1.2rem;
+    color: #1d2029;
+    line-height: 1.5;
+  }
+  
+  .contactUs-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contactUs-container li {
+    font-size: 1.2rem;
+    color: #1d2029;
+    line-height: 1.5;
+  }
+  

@@ -7,6 +7,8 @@ import RegisterPage from "./pages/register";
 import Dashboard from "./pages/dashboard";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Footer from "./pages/footer";
+import AboutUs from "./pages/aboutUs";
+import ContactUs from "./pages/contactUs";
 
 const queryClient = new QueryClient();
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} /> 
         </Routes>
         <Footer />
       </Router>
