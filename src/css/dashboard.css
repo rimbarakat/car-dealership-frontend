@@ -1,4 +1,7 @@
 .dashboard-container {
   margin: 0 auto;
   padding: 20px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }

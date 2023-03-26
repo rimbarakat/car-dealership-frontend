@@ -3,9 +3,18 @@ import "../css/dashboard.css";
 import ProductItem from "../components/product-item/product-item";
 import { useQuery } from "react-query";
 import { getCars } from "../api/cars.service";
+import Footer from "./footer";
 function Dashboard() {
   const { data, error, isLoading } = useQuery("getCars", getCars);
-  
+  const handleEdit = (id) => {
+    // handle edit action
+    console.log(`Edit product with id: ${id}`);
+  };
+
+  const handleDelete = (id) => {
+    // handle delete action
+    console.log(`Delete product with id: ${id}`);
+  };
   if (error) {
     return <div>Error!</div>;
   }
@@ -23,9 +32,12 @@ function Dashboard() {
             title={product.title}
             description={product.description}
             price={product.price}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
           />
         ))}
       </div>
+
     </div>
   );
 }
