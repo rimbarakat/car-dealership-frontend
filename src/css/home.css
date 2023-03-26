@@ -19,4 +19,13 @@
     line-height: 2.5rem;
     color: #666;
   }
+
+  .main-logo{
+    width: 20vw;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+  }
+
+
   

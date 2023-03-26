@@ -5,3 +5,9 @@
   display: flex;
   flex-direction: column;
 }
+.dashboard-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+
