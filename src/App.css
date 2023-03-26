@@ -31,5 +31,6 @@
 .App-link {
   color: #61dafb;
 }
+body {overflow-x: hidden;}
 
 
