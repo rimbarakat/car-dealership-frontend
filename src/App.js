@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Footer from "./pages/footer";
 import AboutUs from "./pages/aboutUs";
 import ContactUs from "./pages/contactUs";
+import ProductDetails from "./pages/cardetails";
 
 const queryClient = new QueryClient();
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} /> 
+          <Route path="/car" element={<ProductDetails/>}/>
         </Routes>
         <Footer />
       </Router>
