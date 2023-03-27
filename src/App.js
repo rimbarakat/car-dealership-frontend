@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
 import Home from "./pages/home";
 import LoginPage from "./pages/login";
 import Navbar from "./pages/navbar";
@@ -14,6 +14,7 @@ import Appointments from "./pages/Forms";
 import RequestTestDrive from "./pages/schedule";
 
 const queryClient = new QueryClient();
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
@@ -27,6 +28,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} /> 
           <Route path="/car" element={<ProductDetails/>}/>
+          {/* <Route path="/cars/:id" element={<CarDetails />} /> */}
           <Route path="/requests" element={<Appointments/>}/>
           <Route path="/request_testdrive" element={<RequestTestDrive/>}/>
         </Routes>
