@@ -17,7 +17,7 @@ const ProductItem = (props) => {
   };
 
   return (
-    <Link key={props.id} to={`/car/${props.id}`} className="dashboard-link">
+    <Link key={props.id} to={`/cars/${props.id}`} className="dashboard-link">
       <div className="dashboard-item">
         <p>
           <img src={props.image} alt="#" />

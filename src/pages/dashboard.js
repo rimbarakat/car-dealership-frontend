@@ -35,8 +35,8 @@ function Dashboard() {
             title={product.title}
             description={product.description}
             price={product.price}
-            onEdit={()=>handleEdit(product._id)}
-            onDelete={()=>handleDelete(product._id)}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
           />
         ))}
       </div>

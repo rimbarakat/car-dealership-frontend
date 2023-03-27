@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Footer from "./pages/footer";
 import AboutUs from "./pages/aboutUs";
 import ContactUs from "./pages/contactUs";
-import ProductDetails from "./pages/cardetails";
+import CarDetails from "./pages/cardetails";
 import Appointments from "./pages/Forms";
 import RequestTestDrive from "./pages/schedule";
 
@@ -27,8 +27,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} /> 
-          <Route path="/car" element={<ProductDetails/>}/>
-          {/* <Route path="/cars/:id" element={<CarDetails />} /> */}
+          <Route path="/cars/:id" element={<CarDetails/>}/>
           <Route path="/requests" element={<Appointments/>}/>
           <Route path="/request_testdrive" element={<RequestTestDrive/>}/>
         </Routes>

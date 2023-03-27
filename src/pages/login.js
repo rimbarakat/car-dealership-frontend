@@ -10,6 +10,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  
   const loginMutation = useMutation(login, {
     onError: (error) => {
       setError("Wrong credentials"); //not necessarily wrong credentials, but keep like this for now.
@@ -17,6 +18,7 @@ function LoginPage() {
     onSuccess: (data) => {
       localStorage.setItem("token", data.accessToken);
       localStorage.setItem("user", data.user);
+      navigate("/dashboard");
     },
   });
 
@@ -55,13 +57,13 @@ function LoginPage() {
     // If they are correct, redirect the user to the cars page
     // If they are incorrect, display an error message
 
-    console.log(`Email: ${email}, Password: ${password}`);
+    console.log(`Email: ${email}, Password: ${password}`); //remove this later on
     return handleClick();
   };
 
   return (
     <div className="login-page">
-      {isAdmin() && <h2>Login</h2>}
+      {/*isAdmin() &&*/ <h2>Login</h2>}
       {error && <div className="error">{error}</div>}
       <form onSubmit={handleLogin}>
         <div className="form-field">

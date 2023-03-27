@@ -1,11 +1,12 @@
-/*import React from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import { getCar } from "../api/cars.service";
+import { getCars } from "../api/cars.service";
 
-function ProductDetails() {
+function CarDetails() {
+
   const { id } = useParams();
-  const { data: car, error, isLoading } = useQuery(["getCar", id], getCar);
+  const { data, error, isLoading } = useQuery(["getCars", id], getCars);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -17,12 +18,12 @@ function ProductDetails() {
 
   return (
     <div className="product-details">
-      <h1>{car.title}</h1>
-      <img src={car.image} alt={car.title} />
-      <p>{car.description}</p>
-      <p>Price: ${car.price}</p>
+      <h1>{data.data.title}</h1>
+      <img src={data.data.image} alt={data.data.title} />
+      <p>{data.data.description}</p>
+      <p>Price: ${data.data.price}</p>
     </div>
   );
 }
 
-export default ProductDetails;*/
+export default CarDetails;
