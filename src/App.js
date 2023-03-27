@@ -10,6 +10,8 @@ import Footer from "./pages/footer";
 import AboutUs from "./pages/aboutUs";
 import ContactUs from "./pages/contactUs";
 import ProductDetails from "./pages/cardetails";
+import Appointments from "./pages/Forms";
+import RequestTestDrive from "./pages/schedule";
 
 const queryClient = new QueryClient();
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} /> 
           <Route path="/car" element={<ProductDetails/>}/>
+          <Route path="/requests" element={<Appointments/>}/>
+          <Route path="/request_testdrive" element={<RequestTestDrive/>}/>
         </Routes>
         <Footer />
       </Router>

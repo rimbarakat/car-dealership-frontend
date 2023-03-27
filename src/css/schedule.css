@@ -1,0 +1,66 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20em;
+  }
+  
+  h1 {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4a4a4a;
+    text-align: center;
+  }
+  
+  .calendar-container {
+    margin-top: 2rem;
+    max-width: 600px;
+  }
+  
+  .react-calendar {
+    border: none;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    height: auto;
+    width: 100%;
+    background-color: #a3c9ea;
+  }
+  
+  .react-calendar__tile {
+    height: 4rem;
+    background-color: #86aff1;
+  }
+  
+  .react-calendar__tile--now {
+    background-color: #4978ba;
+  }
+  
+  .react-calendar__tile--active,
+  .react-calendar__tile--active:hover,
+  .react-calendar__tile--active:focus {
+    background-color: #9ba5d9;
+    color: #fff;
+  }
+  
+  .booked-day {
+    background-color: #457b9d;
+    border-radius: 1rem;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+  }
+  
+  .bold {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
