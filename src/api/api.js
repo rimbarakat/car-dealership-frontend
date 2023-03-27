@@ -10,11 +10,16 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
-api.interceptors.response.use((response) => {
-  if (response.status === 401) {
-    // redirect to login page
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response.status === 401) {
+      localStorage.clear();
+      window.location.href = "/login";
+    }
+    return Promise.reject(error);
   }
-  return response;
-});
+);
+
 console.log(process.env.REACT_APP_API_URL);
 export default api;

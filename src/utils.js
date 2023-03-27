@@ -8,7 +8,7 @@ export const isAdmin = () => {
   }
   return false;
 };
-export const isUser = () => {
+export const isClient = () => {
   const user = getUser();
   try {
     const payload = JSON.parse(user);
