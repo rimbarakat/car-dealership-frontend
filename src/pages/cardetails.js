@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import { getCars } from "../api/cars.service";
+import { getCar } from "../api/car.details";
 
 function CarDetails() {
   const { id } = useParams();
-  const { data, error, isLoading } = useQuery(["getCars", id], getCars);
+  const { data, error, isLoading } = useQuery(["getCar", id], getCar);
   console.log(data);
   if (error) {
     return <div>Error!</div>;
