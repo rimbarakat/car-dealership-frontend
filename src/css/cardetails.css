@@ -1,0 +1,77 @@
+.NavBack{
+    padding-top: 2rem;
+}
+
+a:hover, a:visited, a:link, a:active
+{ 
+    margin-left: 2rem;
+    text-decoration: none;
+    color: black;
+}
+
+.Title{
+    font-size: 2.7rem;
+    font-weight: 400;
+    padding-left: 3rem ;
+    line-height: 6.5rem;
+}
+
+.Pic{
+    padding-left: 3rem;
+    max-width: 50%;  
+    height: auto; 
+    margin-bottom: -11rem;
+}
+
+.PriceBox{
+    position: relative;
+    bottom: 23rem;
+    border: 1.4px solid rgb(74, 152, 231);
+    left: 70rem;
+    width: 260px;
+    height: 100px;
+    top: -18.5rem;
+
+}
+
+.PriceH{
+    font-size: 2rem;
+    font-weight: 600;
+    padding-left: 71rem;
+    position: relative;
+    top: -11.9rem;
+}
+.PriceP{
+    font-size: 1rem;
+    font-weight: 300;
+    top: -12.5rem;
+    padding-left: 71.4rem;
+    position: relative;
+}
+
+.Infoo{
+    font-size: 18px;
+    padding-left: 8rem;
+    font-weight: 200;
+    margin-bottom: 5;    
+}
+.Line1{
+    position: left;
+    border: 0.8px solid rgb(74, 152, 231);
+    left: 70rem;
+    width: 800px;
+    height: 3px;
+    margin-left: 7.8rem;
+
+}
+
+.Line2{
+    position: left;
+    border: 0.8px solid rgb(74, 152, 231);
+    left: 70rem;
+    width: 800px;
+    height: 3px;
+    margin-left: 7.8rem;
+    margin-bottom: 10rem;
+
+}
