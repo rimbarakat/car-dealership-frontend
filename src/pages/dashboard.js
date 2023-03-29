@@ -4,6 +4,7 @@ import ProductItem from "../components/product-item/product-item";
 import { useQuery } from "react-query";
 import { getCars } from "../api/cars.service";
 import {Link} from "react-router-dom";
+
 function Dashboard() {
   const { data, error, isLoading } = useQuery("getCars", getCars);
   const handleEdit = (id) => {
@@ -32,8 +33,8 @@ function Dashboard() {
           <ProductItem
             id={product._id}
             image={product.image}
-            title={product.title}
-            description={product.description}
+            title={product.model}
+            description={data.description}
             price={product.price}
             onEdit={handleEdit}
             onDelete={handleDelete}

@@ -21,7 +21,7 @@ function CarDetails() {
 
 
     <div className='Title'>
-      <h> {data.description} {data.year}</h>
+      <h> {data.model} {data.year}</h>
     </div>
         
     <div> <img className="Pic" src={data.image}></img> </div>
@@ -40,6 +40,21 @@ function CarDetails() {
     <div className="Infoo"> <p> {data.year} &emsp;&emsp;&ensp; 3,000 km &emsp;&emsp;&ensp; 6 Cylinder &emsp;&ensp;  Manual &emsp;&emsp;&emsp;&ensp;&nbsp;Lhd &emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp;Petrol</p></div>
     <div className="Line2"></div>
 
+    <div>
+      <p className="About">About This Car</p>
+      <p className="desc"> {data.description} </p></div>
+      <div className="Line3"></div>
+      <p className="detailz">Car Details</p>
+        <div className="detailzinfo">
+        <p>Model:&emsp;&emsp;&emsp;&emsp;&emsp;<strong>{data.model}</strong></p>
+        <p>Year:&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&#8196;<strong>{data.year}</strong></p>  
+        <p>Color:&emsp;&emsp;&emsp;&emsp;&#8199;&#8194;&#8200;<strong>{data.color}</strong></p>  
+        <p>Mileage:{data.mileage}</p>  
+        <p>Engine:{data.engine}</p>  
+        <p>Fuel Type:{data.fueltype}</p>  
+        <p>Gear Box:{data.gearbox}</p>  
+        <p>Drive:{data.drive}</p>  
+        </div>
   </div>
    
   );

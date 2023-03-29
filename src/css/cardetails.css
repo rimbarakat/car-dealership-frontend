@@ -18,8 +18,9 @@ a:hover, a:visited, a:link, a:active
 
 .Pic{
     padding-left: 3rem;
-    max-width: 50%;  
-    height: auto; 
+    object-fit: cover;
+    width: 50%;
+    height: 23.7rem;  
     margin-bottom: -11rem;
 }
 
@@ -72,6 +73,52 @@ a:hover, a:visited, a:link, a:active
     width: 800px;
     height: 3px;
     margin-left: 7.8rem;
-    margin-bottom: 10rem;
+    margin-bottom: 3rem;
+
+}
+
+
+.desc{
+    margin-bottom: 2rem;
+    margin-left: 7.8rem;
+    width: 800px;
+    font-weight: 300;
+}
+
+.About{
+    font-size: 2rem;
+    font-weight: 200;
+    margin-left: 7.8rem;
+}
+
+.Line3{
+    position: left;
+    border: 0.8px solid rgb(74, 152, 231);
+    left: 70rem;
+    width: 800px;
+    height: 3px;
+    margin-left: 7.8rem;
+    margin-bottom: 3rem;
+
+}
+
+.detailz{
+    font-size: 2rem;
+    font-weight: 200;
+    margin-left: 7.8rem;
+}
+
+
+
+.detailzinfo{
+    font-size: 1rem;
+    font-weight: 200;
+    margin-left: 7.8rem;
+    
+}
+
+.de{
+    left: 10rem;
+    font-size: 20rem;
 
 }
