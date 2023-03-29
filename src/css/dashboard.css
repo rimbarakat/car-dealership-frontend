@@ -10,4 +10,44 @@
   text-decoration: none;
 }
 
+.dashboard-search {
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-search input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  outline: none;
+  margin-right: 0.5rem;
+}
+
+.dashboard-search input:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0b84e8;
+}
+
+.dashboard-search button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.dashboard-search button:hover {
+  background-color: #0069d9;
+}
+
+
 
