@@ -10,7 +10,7 @@ function RequestTestDrive() {
   const [selectedTime, setSelectedTime] = useState(null);
 
   const handleDateClick = (date) => {
-    if (!bookedDates.find(bookedDate => bookedDate.date.toDateString() === date.toDateString())) {
+    if (!bookedDates.find(bookedDate => bookedDate.date.toDateString() === date.toDateString()) && date >= new Date()) {
       setSelectedDate(date);
     }
   };
@@ -32,17 +32,31 @@ function RequestTestDrive() {
     );
   };
 
+  const isBookedTime = (time) => {
+    return (
+      bookedDates.find(bookedDate => {
+        return (
+          bookedDate.date.toDateString() === selectedDate.toDateString() && 
+          bookedDate.time === time
+        );
+      })
+    );
+  };
+
   const availableTimings = ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM'];
+
+  const today = new Date();
+  const todayIndex = [0, 1, 2, 3, 4, 5, 6].findIndex(i => date.toLocaleDateString() === new Date(today.getFullYear(), today.getMonth(), today.getDate() + i).toLocaleDateString());
 
   return (
     <div className='app'>
       <div className='calendar-container'>
         <Calendar
           onChange={setDate}
-          value={date}
+          value={new Date(today.getFullYear(), today.getMonth(), today.getDate() + todayIndex)}
           onClickDay={handleDateClick}
-          tileDisabled={isBookedDay}
-          tileClassName={isBookedDay}
+          tileDisabled={({ date }) => date < new Date() || bookedDates.find(bookedDate => bookedDate.date.toDateString() === date.toDateString())}
+          tileClassName={({ date }) => date < new Date() ? 'disabled-date' : isBookedDay({ date, view: 'month' }) ? 'booked-date' : ''}
         />
       </div>
       {selectedDate && (
@@ -52,6 +66,7 @@ function RequestTestDrive() {
             {availableTimings.map((time, index) => (
               <li key={index}>
                 <button 
+                  disabled={isBookedTime(time)}
                   className={selectedTime === time ? 'active' : ''}
                   onClick={() => handleTimeClick(time)}
                 >
@@ -74,7 +89,8 @@ function RequestTestDrive() {
           <span className='bold'>Booked Dates:</span>{' '}
           {bookedDates.map((booking, index) => (
             <span key={index}>
-              {booking.date.toDateString()} at {booking.time}
+              {
+booking.date.toDateString()} at {booking.time}
               {index !== bookedDates.length - 1 ? ', ' : ''}
             </span>
           ))}
