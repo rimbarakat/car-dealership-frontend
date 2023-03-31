@@ -11,39 +11,61 @@
 .Title {
   font-size: 2rem;
   font-weight: bold;
-  margin: 2rem;
+  margin-left: 4.6rem;
+  padding-top: 2rem;
 }
 
 .Pic {
-  max-width: 100%;
-  margin: 2rem;
+  margin-left: 4.6rem;
+  object-fit:scale-down;
+  height: 100%;  
+  width: 50%;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 50px;
+}
+.pic-div{
+  height: 400px;
 }
 
 .PriceBox {
-  background-color: #007bff;
-  color: white;
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  margin: 2rem;
+  margin-left: 4.6rem;
 }
 
 .PriceH {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 200;
   margin: 0;
+  padding-top: 1rem;
 }
 
-.PriceP {
-  font-size: 1rem;
-  margin: 0;
+
+.tableinfo{
+    margin-left: 6rem;
 }
+.table-div{
+  margin-left: 4.6rem;
+}
+
+.cell {
+    margin-left: 4.6rem;
+    width: 130px;
+    height: 40px;
+    padding: 5px;
+    font-weight: 200;
+  }
 
 .Line1 {
-  height: 2px;
-  width: 100%;
-  background-color: #e5e5e5;
+  position: left;
+  border: 0.8px solid rgb(74, 152, 231);
+  left: 70rem;
+  width: 55.5%;
+  height: 3px;
+  margin-left: 4.6rem;
 }
 
 .Infoo {
@@ -53,41 +75,54 @@
 }
 
 .Line2 {
-  height: 2px;
-  width: 100%;
-  background-color: #e5e5e5;
+  position: left;
+  border: 0.8px solid rgb(74, 152, 231);
+  left: 70rem;
+  width: 55.5%;
+  height: 3px;
+  margin-left: 4.6rem;
 }
 
 .About {
   font-size: 1.5rem;
   margin: 2rem;
-  font-weight: bold;
+  font-weight: 400;
+  margin-left: 4.6rem;
+
 }
 
 .desc {
   margin: 2rem;
   font-size: 1.2rem;
   line-height: 1.5;
+  margin-left: 4.6rem;
+  width: 55.5%;
 }
 
 .Line3 {
-  height: 2px;
-  width: 100%;
-  background-color: #e5e5e5;
+  position: left;
+  border: 0.8px solid rgb(74, 152, 231);
+  left: 70rem;
+  width: 55.5%;
+  height: 3px;
+  margin-left: 4.6rem;
 }
 
 .detailz {
   font-size: 1.5rem;
   margin: 2rem;
   font-weight: bold;
+  margin-left: 4.6rem;
 }
 
 .detailzinfo {
   margin: 2rem;
   font-size: 1.2rem;
   line-height: 1.5;
+  margin-left: 4.6rem;
 }
 
 .detailzinfo p {
   margin: 1rem 0;
+  
 }
