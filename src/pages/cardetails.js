@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getCar } from "../api/car.details";
+import RequestTestDrive from './schedule.js'
 import '../css/cardetails.css'
 
 function CarDetails() {
@@ -15,53 +16,63 @@ function CarDetails() {
     return <div>Loading...</div>;
   }
   return (
-  <div>
-    <div className="NavBack">
-    <a href="javascript:history.back()" class="back-link">《 BACK TO LISTINGS</a>
-    </div>
+    <div>
 
-
-    <div className="pic-div"> <img className="Pic" src={data.image}></img> </div>
-
-    {/* <div className='Title'>
-      <h> {data.model} {data.year}</h>
-    </div> */}
-        
-      
-    <div className="PriceBox">
-      <h className="PriceH">{data.model}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{data.price}</h>
+      <div>
+      <div className="NavBack">
+        <a href="javascript:history.back()" class="back-link">《 BACK TO LISTINGS</a>
       </div>
 
-    
-    <div className="Line1"></div>
-  <div className="table-div">
-    <table className="infotable">
-  <tr>
-    <td className="cell">Year</td>
-    <td className="cell">Mileage</td>
-    <td className="cell">Engine</td>
-    <td className="cell">Gearbox</td>
-    <td className="cell">Drive</td>
-    <td className="cell">Fuel type</td>
-  </tr>
-  <tr>
-    <td className="cell">{data.year}</td>
-    <td className="cell">{data.mileage} km</td>
-    <td className="cell">{data.engineShort}</td>
-    <td className="cell">{data.engineShort}</td>
-    <td className="cell">{data.gearBoxShort}</td>
-    <td className="cell">{data.driveShort} </td>
-  </tr>
-</table>
-</div>
-    <div className="Line2"></div>
+      <div className="container">
+        <div className="pic-div">
+          <img className="Pic" src={data.image}></img>
+        </div>       
 
-    <div>
-      <p className="About">About This Car</p>
-      <p className="desc"> {data.description} </p></div>
+        {/* BEGGINNIG OF TABLE */}
+         <table className="Table">    
+            <tr>
+
+        {/* BEGGINNIG OF LEFT SIDE */}
+        
+        <td className="left">
+
+        <div className="PriceBox">
+          <h className="PriceH">{data.model}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{data.price}</h>
+        </div>
+        <div className="Line1"></div>
+
+      <div className="table-div">
+        <table className="infotable">
+          <tr>
+            <td className="cell">Year</td>
+            <td className="cell">Mileage</td>
+            <td className="cell">Engine</td>
+            <td className="cell">Gearbox</td>
+            <td className="cell">Drive</td>
+            <td className="cell">Fuel type</td>
+          </tr>
+          <tr>
+            <td className="cell">{data.year}</td>
+            <td className="cell">{data.mileage} km</td>
+            <td className="cell">{data.engineShort}</td>
+            <td className="cell">{data.engineShort}</td>
+            <td className="cell">{data.gearBoxShort}</td>
+            <td className="cell">{data.driveShort} </td>
+          </tr>
+        </table>
+      </div>
+
+      <div className="Line2"></div>
+
+      <div>
+        <p className="About">About This Car</p>
+        <p className="desc">{data.description}</p>
+      </div>
+
       <div className="Line3"></div>
+
       <p className="detailz">Car Details</p>
-        <div className="detailzinfo">
+      <div className="detailzinfo">
         <p><strong>Model:</strong>&emsp;&emsp;&emsp;&emsp;&emsp;{data.model}</p>
         <p><strong>Year:</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&#8196;&#8202;{data.year}</p>  
         <p><strong>Color:</strong>&emsp;&emsp;&emsp;&emsp;&#8199;&#8194;&#8200;{data.color}</p>  
@@ -71,11 +82,34 @@ function CarDetails() {
         <p><strong>Gear Box:</strong>&emsp;&emsp;&emsp;&#8239;&#8239;&#8239;&#8239;&#8239;&#8202;{data.gearBox}</p>   
         <p><strong>Drive:</strong>&emsp;&emsp;&emsp;&emsp;&#8194;&#8194;&#8198;&#8202;&#8202;&#8239;&#8239;&#8202;{data.drive}</p>   
         </div>
+        </td>
+        {/* END OF LEFT SIDE */} 
+
+
+        {/* BEGGINING OF RIGHT SIDE */}   
+        <td className="right">
+          
+          <div className="mobile-menu">
+            
+            <RequestTestDrive />
+          
+          </div>  
+        
+        </td>
+        {/* END OF RIGHT SIDE */}        
+            
+        </tr>
+        </table> 
+      {/* END OF TABLE */}
+
+      </div>
+
+      </div>
+
   </div>
    
   );
 }
 
 export default CarDetails;
-
 

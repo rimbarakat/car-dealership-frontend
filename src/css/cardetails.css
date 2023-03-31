@@ -1,3 +1,33 @@
+
+.Table{
+  padding-right: 2.5rem;
+  padding-bottom: 10rem;
+  margin-top: 1rem;
+  
+}
+
+.left{
+  width: 60%;
+}
+.right{
+  width: 30%;
+}
+
+.mobile-menu{
+  display: none;
+}
+
+@media screen and (min-width:1100px),(-ms-high-contrast: active), (-ms-high-contrast: none) {  
+   .mobile-menu{
+    -ms-wrap-flow: both;
+    -ms-wrap-margin: 10px;
+    display: flex;
+    flex-direction: column;
+    position: -webkit-sticky;
+   }
+}
+
+
 .NavBack {
   margin: 2rem;
   font-size: 1rem;
@@ -8,20 +38,15 @@
   text-decoration: none;
 }
 
-.Title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-left: 4.6rem;
-  padding-top: 2rem;
-}
 
 .Pic {
   margin-left: 4.6rem;
   object-fit:scale-down;
   height: 100%;  
   width: 50%;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 50px;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
+
 }
 .pic-div{
   height: 400px;
@@ -29,41 +54,42 @@
 
 .PriceBox {
   color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+  padding-bottom: 1rem;
   margin-left: 4.6rem;
 }
 
 .PriceH {
   font-size: 2rem;
-  font-weight: 200;
+  font-weight: 300;
   margin: 0;
   padding-top: 1rem;
 }
 
 
 .tableinfo{
-    margin-left: 6rem;
+  margin-left: 6rem;
+  
 }
 .table-div{
   margin-left: 4.6rem;
+  
 }
 
 .cell {
-    margin-left: 4.6rem;
-    width: 130px;
-    height: 40px;
-    padding: 5px;
-    font-weight: 200;
-  }
+  margin-left: 4.6rem;
+  width: 130px;
+  height: 40px;
+  padding: 5px;
+  font-weight: 200;
+}
+
+
 
 .Line1 {
   position: left;
   border: 0.8px solid rgb(74, 152, 231);
   left: 70rem;
-  width: 55.5%;
+  width: 85%;
   height: 3px;
   margin-left: 4.6rem;
 }
@@ -78,7 +104,7 @@
   position: left;
   border: 0.8px solid rgb(74, 152, 231);
   left: 70rem;
-  width: 55.5%;
+  width: 85%;
   height: 3px;
   margin-left: 4.6rem;
 }
@@ -86,7 +112,7 @@
 .About {
   font-size: 1.5rem;
   margin: 2rem;
-  font-weight: 400;
+  font-weight: 300;
   margin-left: 4.6rem;
 
 }
@@ -96,14 +122,15 @@
   font-size: 1.2rem;
   line-height: 1.5;
   margin-left: 4.6rem;
-  width: 55.5%;
+  width: 85%;
+  font-weight: 200;
 }
 
 .Line3 {
   position: left;
   border: 0.8px solid rgb(74, 152, 231);
   left: 70rem;
-  width: 55.5%;
+  width: 85%;
   height: 3px;
   margin-left: 4.6rem;
 }
@@ -113,6 +140,8 @@
   margin: 2rem;
   font-weight: bold;
   margin-left: 4.6rem;
+  font-weight: 300;
+
 }
 
 .detailzinfo {
@@ -120,9 +149,6 @@
   font-size: 1.2rem;
   line-height: 1.5;
   margin-left: 4.6rem;
+  font-weight: 200;
 }
 
-.detailzinfo p {
-  margin: 1rem 0;
-  
-}
