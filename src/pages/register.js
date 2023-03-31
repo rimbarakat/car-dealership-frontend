@@ -109,7 +109,7 @@ return (
 </div>
 <button type="submit" >Register</button>
 </form>
-<div className="login-link">
+<div className="register-link">
 <p>Already have an account? <a href="/login">Login</a></p>
 </div>
 </div>)}
