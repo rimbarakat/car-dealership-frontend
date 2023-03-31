@@ -8,6 +8,7 @@ const ProductItem = (props) => {
 
     props.onEdit(props.id);
   };
+  console.log(props)
 
   const handleDelete = (event) => {
     event.stopPropagation();

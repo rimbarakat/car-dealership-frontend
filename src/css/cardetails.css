@@ -1,124 +1,93 @@
-.NavBack{
-    padding-top: 2rem;
+.NavBack {
+  margin: 2rem;
+  font-size: 1rem;
 }
 
 .back-link {
-    color: black;
-    text-decoration: none;
-    margin-left: 2rem;
-  }
-  
-
-.Title{
-    font-size: 2.7rem;
-    font-weight: 400;
-    padding-left: 3rem ;
-    line-height: 6.5rem;
+  color: #007bff;
+  text-decoration: none;
 }
 
-.Pic{
-    padding-left: 3rem;
-    object-fit: cover;
-    width: 50%;
-    height: 23.7rem;  
-    margin-bottom: -11rem;
+.Title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem;
 }
 
-.PriceBox{
-    position: relative;
-    bottom: 23rem;
-    border: 1.4px solid rgb(74, 152, 231);
-    left: 70rem;
-    width: 260px;
-    height: 100px;
-    top: -18.5rem;
-
+.Pic {
+  max-width: 100%;
+  margin: 2rem;
 }
 
-.PriceH{
-    font-size: 2rem;
-    font-weight: 600;
-    padding-left: 71rem;
-    position: relative;
-    top: -11.9rem;
-}
-.PriceP{
-    font-size: 1rem;
-    font-weight: 300;
-    top: -12.5rem;
-    padding-left: 71.4rem;
-    position: relative;
+.PriceBox {
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 2rem;
 }
 
-.Infoo{
-    font-size: 18px;
-    padding-left: 8rem;
-    font-weight: 200;
-    margin-bottom: 5;    
-}
-.Line1{
-    position: left;
-    border: 0.8px solid rgb(74, 152, 231);
-    left: 70rem;
-    width: 800px;
-    height: 3px;
-    margin-left: 7.8rem;
-
+.PriceH {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
 }
 
-.Line2{
-    position: left;
-    border: 0.8px solid rgb(74, 152, 231);
-    left: 70rem;
-    width: 800px;
-    height: 3px;
-    margin-left: 7.8rem;
-    margin-bottom: 3rem;
-
+.PriceP {
+  font-size: 1rem;
+  margin: 0;
 }
 
-
-.desc{
-    margin-bottom: 2rem;
-    margin-left: 7.8rem;
-    width: 800px;
-    font-weight: 300;
+.Line1 {
+  height: 2px;
+  width: 100%;
+  background-color: #e5e5e5;
 }
 
-.About{
-    font-size: 2rem;
-    font-weight: 200;
-    margin-left: 7.8rem;
+.Infoo {
+  margin: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
-.Line3{
-    position: left;
-    border: 0.8px solid rgb(74, 152, 231);
-    left: 70rem;
-    width: 800px;
-    height: 3px;
-    margin-left: 7.8rem;
-    margin-bottom: 3rem;
-
+.Line2 {
+  height: 2px;
+  width: 100%;
+  background-color: #e5e5e5;
 }
 
-.detailz{
-    font-size: 2rem;
-    font-weight: 200;
-    margin-left: 7.8rem;
+.About {
+  font-size: 1.5rem;
+  margin: 2rem;
+  font-weight: bold;
 }
 
-
-
-.detailzinfo{
-    font-size: 1rem;
-    font-weight: 200;
-    margin-left: 7.8rem;
-    
+.desc {
+  margin: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
-.de{
-    left: 10rem;
-    font-size: 20rem;
+.Line3 {
+  height: 2px;
+  width: 100%;
+  background-color: #e5e5e5;
+}
 
+.detailz {
+  font-size: 1.5rem;
+  margin: 2rem;
+  font-weight: bold;
+}
+
+.detailzinfo {
+  margin: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.detailzinfo p {
+  margin: 1rem 0;
 }

@@ -14,18 +14,20 @@
   margin: 1rem auto;
   display: flex;
   align-items: center;
+  width: 75%;
+  height: 30px;
 }
 
 .dashboard-search input {
   padding: 0.5rem;
   font-size: 1rem;
   width: 100%;
-  max-width: 300px;
   border: 2px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   outline: none;
   margin-right: 0.5rem;
+  height: 30px;
 }
 
 .dashboard-search input:focus {

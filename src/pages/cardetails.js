@@ -27,14 +27,15 @@ function CarDetails() {
         
     <div> <img className="Pic" src={data.image}></img> </div>
       
-      <div>
+    <div className="PriceBox">
       <h className="PriceH">$259,000</h>
       <p className="PriceP">From $2,463.71 /month</p>
-      <div></div>
-      <div></div>
       </div>
+      {/* <div></div>
+      <div></div> */}
       
-    <div className="PriceBox"></div>
+      
+    
 
     <div className="Line1"></div>
     <div className="Infoo"> <p> Year &emsp;&emsp;&emsp; Mileage &emsp;&emsp;&emsp; Engine &emsp;&emsp;&emsp; Gearbox &emsp;&emsp;&emsp; Drive &emsp;&emsp;&emsp; Fuel type</p></div>
