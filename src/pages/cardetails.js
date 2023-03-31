@@ -7,6 +7,7 @@ function CarDetails() {
   const { id } = useParams();
   const { data, error, isLoading } = useQuery(["getCar", id], getCar);
   console.log(data);
+  
   if (error) {
     return <div>Error!</div>;
   }
@@ -16,7 +17,7 @@ function CarDetails() {
   return (
   <div>
     <div className="NavBack">
-    <a href="javascript:history.back()"> 《 BACK TO LISTINGS</a>
+    <a href="javascript:history.back()" class="back-link">《 BACK TO LISTINGS</a>
     </div>
 
 
