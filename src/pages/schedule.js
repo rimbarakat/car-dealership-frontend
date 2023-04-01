@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { getCar } from "../api/car.details";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
 import '../css/schedule.css';
 
 function RequestTestDrive() {
@@ -8,7 +11,10 @@ function RequestTestDrive() {
   const [bookedDates, setBookedDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-
+  const { id } = useParams();
+  const { data} = useQuery(["getCar", id], getCar);
+  console.log(data);
+  
   const handleDateClick = (date) => {
     if (!bookedDates.find(bookedDate => bookedDate.date.toDateString() === date.toDateString()) && date >= new Date()) {
       setSelectedDate(date);
@@ -51,11 +57,16 @@ function RequestTestDrive() {
   return (
     <div className='app'>
       <div className='calendar-container'>
-        <Calendar
+      <Calendar
           onChange={setDate}
           value={new Date(today.getFullYear(), today.getMonth(), today.getDate() + todayIndex)}
           onClickDay={handleDateClick}
-          tileDisabled={({ date }) => date < new Date() || bookedDates.find(bookedDate => bookedDate.date.toDateString() === date.toDateString())}
+          tileDisabled={({ date }) => 
+            date < new Date() ||
+            (date.getDay() === 6 && date > new Date(new Date().setHours(23,59,59,999))) ||
+            (date.getDay() === 0 && date > new Date(new Date().setHours(23,59,59,999))) ||
+            bookedDates.find(bookedDate => bookedDate.date.toDateString() === date.toDateString())
+          }
           tileClassName={({ date }) => date < new Date() ? 'disabled-date' : isBookedDay({ date, view: 'month' }) ? 'booked-date' : ''}
         />
       </div>
@@ -90,7 +101,7 @@ function RequestTestDrive() {
           {bookedDates.map((booking, index) => (
             <span key={index}>
               {
-booking.date.toDateString()} at {booking.time}
+booking.date.toDateString()} at {booking.time} {data.model} {data.year} {data.color} ID:{data._id}
               {index !== bookedDates.length - 1 ? ', ' : ''}
             </span>
           ))}
