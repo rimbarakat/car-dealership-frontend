@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import "../css/register.css";
 import { useQuery } from "react-query";
 import { createCar } from "../api/create.car";
+import { useMutation } from "react-query";
+
 
 
 function CarForm() {
@@ -27,7 +29,15 @@ function CarForm() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  const createCarMutation = useMutation(createCar, {
+    onError: (error) => {
+      setError("Car not created"); 
+    },
+    onSuccess: (data) => {
 
+      navigate("/dashboard");
+    },
+  });
   function handleClick() {
     navigate("/dashboard")
   }
@@ -106,7 +116,6 @@ function CarForm() {
 
   const handleCreateListing = (event) => {
     event.preventDefault();
-    console.log(color);
     // Validate input values
     if (!color || !model || !description || !mileage || !year || !price || !engine || !drive || !fuelType || !gearBox || !image) {
       setError('Please fill out all required fields.');
@@ -138,16 +147,17 @@ function CarForm() {
   
     // TODO: Save the new car listing to your database
   
-    console.log('New car listing:', newCarListing);
-    createCar(newCarListing)
-  .then((response) => {
-    console.log("Car created successfully:", response);
-  })
-  .catch((error) => {
-    console.error("Error creating car:", error);
-  });
-    navigate('/dashboard');
-  };
+  //   console.log('New car listing:', newCarListing);
+  //   createCar(newCarListing)
+  // .then((response) => {
+  //   console.log("Car created successfully:", response);
+  // })
+  // .catch((error) => {
+  //   console.error("Error creating car:", error);
+  // });
+  //   navigate('/dashboard');
+  createCarMutation.mutate({newCarListing});
+   };
   return (
     <div className="register-page">
       <h2>New Car Listing</h2>
@@ -287,7 +297,6 @@ function CarForm() {
             onChange={handleImageChange}
           />
         </div>
-        {/* Add more input fields for other car attributes */}
         <button type="submit" onClick={handleCreateListing}>Create Listing</button>
       </form>
     </div>
