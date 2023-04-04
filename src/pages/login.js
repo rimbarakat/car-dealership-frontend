@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../css/login.css";
 import { useMutation } from "react-query";
 import { login } from "../api/auth.service";
-import { isAdmin } from "../utils";
+import { isAdmin, isAuthenticated } from "../utils";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -17,8 +17,17 @@ function LoginPage() {
     },
     onSuccess: (data) => {
       localStorage.setItem("token", data.accessToken);
-      localStorage.setItem("user", data.user);
-      navigate("/dashboard");
+      localStorage.setItem("user", JSON.stringify(data.user));
+      if (isAuthenticated()) {
+        if (isAdmin()) {
+          console.log(isAdmin())
+          navigate("/dashboard");
+        }
+        else {
+          console.log(isAdmin());
+          navigate("/dashboard");
+        }
+      }
     },
   });
 
