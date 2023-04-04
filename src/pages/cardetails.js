@@ -2,7 +2,9 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getCar } from "../api/car.details";
 import RequestTestDrive from './schedule.js'
+import Dashboard from "./dashboard";
 import '../css/cardetails.css'
+import ProductItem from "../components/product-item/product-item";
 
 function CarDetails() {
   const { id } = useParams();
@@ -103,7 +105,16 @@ function CarDetails() {
       {/* END OF TABLE */}
 
       </div>
-
+      <div className="morefeatured">
+          <h>More availabe</h>
+      </div>
+        <div className="MoreCars">
+        <ProductItem/>
+        <ProductItem/>
+        <ProductItem/>
+      </div>
+      
+      
       </div>
 
   </div>
