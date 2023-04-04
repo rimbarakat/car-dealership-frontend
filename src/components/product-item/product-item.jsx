@@ -1,7 +1,8 @@
 import "./product-item.css";
 import { Link } from "react-router-dom";
+import { isAdmin } from "../../utils";
 
-const ProductItem = (props) => {
+function ProductItem(props) {
   const handleEdit = (event) => {
     event.stopPropagation();
     event.preventDefault();
@@ -26,22 +27,26 @@ const ProductItem = (props) => {
         <p className="dashboard-item-description">{props.description}</p>
         <p className="dashboard-item-price">Price: {props.price}</p>
         <div className="dashboard-item-buttons">
-          <button
-            className="dashboard-item-edit"
-            onClick={(event) => handleEdit(event)}
-          >
-            Edit
-          </button>
-          <button
-            className="dashboard-item-delete"
-            onClick={(event) => handleDelete(event)}
-          >
-            Delete
-          </button>
+          {isAdmin() ? (
+            <>
+              <button
+                className="dashboard-item-edit"
+                onClick={(event) => handleEdit(event)}
+              >
+                Edit
+              </button>
+              <button
+                className="dashboard-item-delete"
+                onClick={(event) => handleDelete(event)}
+              >
+                Delete
+              </button>
+            </>
+          ): null }
         </div>
       </div>
     </Link>
   );
-};
+}
 
 export default ProductItem;
