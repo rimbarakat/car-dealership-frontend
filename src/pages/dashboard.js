@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 
   function Dashboard() {
-  const { data, error, isLoading } = useQuery("getCars", getCars);
+  const { data, error, isLoading, refetch } = useQuery("getCars", getCars);
   const [searchTerm,setSearchTerm]=useState('');
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
         console.log(error);
     },
     onSuccess: (data) => {
-      window.location.reload(true);
+      refetch();
       navigate("/dashboard");
     },
   });
