@@ -41,7 +41,7 @@ function Navbar() {
       {!isAuthenticated() && <Link to="/login" className="navbar__item">Login</Link>}
       {!isAuthenticated() && <Link to="/register" className="navbar__item">Register</Link>}
       {isAuthenticated() && isAdmin() && <Link to="/createcar" className="navbar__item">+ Add Car</Link>}
-      {isAuthenticated() && <Link to="/" className="logout-button" onClick={handleLogout}>Log Out</Link>}
+      {isAuthenticated() && <Link to="/" className="navbar__item" onClick={handleLogout}>Log Out</Link>}
       <div className='logoWrap'>
         <img src={logo} className="logo"/>
       </div>

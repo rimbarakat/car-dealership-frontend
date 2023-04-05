@@ -14,7 +14,7 @@ function CarForm() {
   const [mileage, setMileage] = useState('');
   const [year, setYear] = useState('');
   const [price, setPrice] = useState('');
-  const [priceInt, setPriceInt] = useState('');
+  const [price_int, setPriceInt] = useState('');
   const [engine, setEngine] = useState('');
   const [engineShort, setEngineShort] = useState('');
   const [drive, setDrive] = useState('');
@@ -122,7 +122,7 @@ function CarForm() {
       return;
     }
   
-    const priceInt = parseFloat(price.replace(',', '')); // convert price string to float
+    const price_int = parseFloat(price.replace(',', '')); // convert price string to float
   
     const newCarListing = {
       color,
@@ -131,7 +131,7 @@ function CarForm() {
       mileage,
       year,
       price,
-      priceInt,
+      price_int,
       engine,
       engineShort,
       drive,
@@ -144,19 +144,8 @@ function CarForm() {
       isAvailable: true,
       isSold: false,
     };
-  
-    // TODO: Save the new car listing to your database
-  
-  //   console.log('New car listing:', newCarListing);
-  //   createCar(newCarListing)
-  // .then((response) => {
-  //   console.log("Car created successfully:", response);
-  // })
-  // .catch((error) => {
-  //   console.error("Error creating car:", error);
-  // });
-  //   navigate('/dashboard');
-  createCarMutation.mutate({newCarListing});
+
+  createCarMutation.mutate(newCarListing);
    };
   return (
     <div className="register-page">
