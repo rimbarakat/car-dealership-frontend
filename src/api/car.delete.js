@@ -1,7 +1,8 @@
 import api from "./api";
 
 export const deleteCar = async (id) => {
-    const _id = (id.queryKey[1]);               
-    const response =  await api.delete(`/cars/${_id}`);
+     
+    console.log(id);              
+    const response =  await api.delete(`/cars/${id}`);
     return response.data;
 };

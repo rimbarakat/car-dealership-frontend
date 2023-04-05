@@ -5,18 +5,32 @@ import { useQuery } from "react-query";
 import { getCars } from "../api/cars.service";
 import {Link} from "react-router-dom";
 import { useState } from "react";
+import { deleteCar } from "../api/car.delete";
+import { useMutation } from "react-query";
+import { useNavigate } from 'react-router-dom';
 
 
-function Dashboard() {
+  function Dashboard() {
   const { data, error, isLoading } = useQuery("getCars", getCars);
   const [searchTerm,setSearchTerm]=useState('');
+  const navigate = useNavigate();
+
+  const deleteCarMutation = useMutation(deleteCar, {
+    onError: (error) => {
+        console.log(error);
+    },
+    onSuccess: (data) => {
+      window.location.reload(true);
+      navigate("/dashboard");
+    },
+  });
   const handleEdit = (id) => {
     // handle edit action
     console.log(`Edit product with id: ${id}`);
   };
 
   const handleDelete = (id, event) => {
-    // handle delete action
+    deleteCarMutation.mutate(id);
     console.log(`Delete product with id: ${id}`);
     
   };
