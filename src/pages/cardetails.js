@@ -104,19 +104,8 @@ function CarDetails() {
         </table> 
       {/* END OF TABLE */}
 
+      </div>    
       </div>
-      <div className="morefeatured">
-          <h>More availabe</h>
-      </div>
-        <div className="MoreCars">
-        <ProductItem/>
-        <ProductItem/>
-        <ProductItem/>
-      </div>
-      
-      
-      </div>
-
   </div>
    
   );

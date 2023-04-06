@@ -25,14 +25,12 @@ import { useNavigate } from 'react-router-dom';
     },
   });
   const handleEdit = (id) => {
-    // handle edit action
+    navigate(`/editcar/${id}`);
     console.log(`Edit product with id: ${id}`);
   };
 
   const handleDelete = (id, event) => {
-    deleteCarMutation.mutate(id);
-    console.log(`Delete product with id: ${id}`);
-    
+    deleteCarMutation.mutate(id);  
   };
 
   if (error) {

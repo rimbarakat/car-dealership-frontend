@@ -80,5 +80,10 @@
   .register-link a:hover {
     text-decoration: underline;
   }
+
+  .form-mini-title {
+    color:#007bff;
+    margin: 0;
+  }
   
   
