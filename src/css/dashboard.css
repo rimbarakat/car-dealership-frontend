@@ -50,6 +50,45 @@
 .dashboard-search button:hover {
   background-color: #0069d9;
 }
+.dashboard-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.dashboard-select select {
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.dashboard-select select:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0b84e8;
+}
+
+.yearFilter {
+  margin-right: 0.5rem;
+}
+
+.dashboard-table {
+  margin: 1rem auto;
+  width: 75%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ccc;
+}
+.dashboard-select select option {
+  font-size: 1rem;
+}
+
 
 
 

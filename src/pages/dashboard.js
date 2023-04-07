@@ -14,6 +14,7 @@ import { isAdmin } from "../utils";
   function Dashboard() {
   const { data, error, isLoading, refetch } = useQuery("getCars", getCars);
   const [searchTerm,setSearchTerm]=useState('');
+  const [selectedYear, setSelectedYear] = useState([]);
   const navigate = useNavigate();
 
   const deleteCarMutation = useMutation(deleteCar, {
@@ -45,7 +46,12 @@ import { isAdmin } from "../utils";
   }
   const filteredData = data.data.filter((product) =>
     product.model.toLowerCase().includes(searchTerm.toLowerCase())
+    && product.year.includes(selectedYear)
   );
+  const yearOptions = [];
+    for (let i = 2000; i <= 2023; i++) {
+      yearOptions.push(i);}
+
 
   return (
     <div className="dashboard-container">
@@ -57,6 +63,17 @@ import { isAdmin } from "../utils";
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}/>
       </div>
+      <div className="dashboard-select">
+        <p className="yearFilter">Year :</p>
+        <select value={selectedYear} onChange={(event) => setSelectedYear(event.target.value)}>
+          <option value="">All Years</option>
+          {yearOptions.map((year) => (
+            <option key={year} value={year}>
+              {year}
+              </option>
+          ))}
+          </select>
+          </div>
       <div className="dashboard-item-buttons">
           {isAdmin() ? (
             <>
