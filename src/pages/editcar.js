@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../css/register.css";
 import { useQuery } from "react-query";
@@ -32,7 +32,28 @@ function CarEditForm() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { data, err, isLoading } = useQuery(["getCar", id], getCar);
-    console.log(data);
+  useEffect(() => {
+    if (data) {
+      setColor(data.color);
+      setModel(data.model);
+      setDescription(data.description);
+      setMileage(data.mileage);
+      setYear(data.year);
+      setPrice(data.price);
+      setPriceInt(data.price_int);
+      setEngine(data.engine);
+      setEngineShort(data.engineShort);
+      setDrive(data.drive);
+      setDriveShort(data.driveShort);
+      setFuelType(data.fuelType);
+      setFuelTypeShort(data.fuelTypeShort);
+      setGearBox(data.gearBox);
+      setGearBoxShort(data.gearBoxShort);
+      setImage(data.image);
+      setIsAvailable(data.isAvailable);
+      setIsSold(data.isSold);
+    }
+  }, [data]);
   const createCarMutation = useMutation(createCar, {
     onError: (error) => {
       setError("Car not editted"); 
