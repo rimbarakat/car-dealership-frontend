@@ -6,16 +6,15 @@ function ProductItem(props) {
   const handleEdit = (event) => {
     event.stopPropagation();
     event.preventDefault();
-
     props.onEdit(props.id);
   };
 
   const handleDelete = (event) => {
     event.stopPropagation();
     event.preventDefault();
-
     props.onDelete(props.id);
   };
+  
 
   return (
     <Link key={props.id} to={`/cars/${props.id}`} className="dashboard-link">
@@ -23,9 +22,11 @@ function ProductItem(props) {
         <p>
           <img src={props.image} alt="#" />
         </p>
+        
         <h3 className="dashboard-item-title">{props.title}</h3>
-        <p className="dashboard-item-description">{props.description}</p>
+        <p className="dashboard-item-description">{/*props.description*/}</p>
         <p className="dashboard-item-price">Price: ${props.price}</p>
+        
         <div className="dashboard-item-buttons">
           {isAdmin() ? (
             <>
@@ -44,7 +45,16 @@ function ProductItem(props) {
             </>
           ): null }
         </div>
+        {props.isSold ? (
+          <div className="overlay">
+      <div className="sold-text">
+        Sold!
       </div>
+    </div>
+        ): null}
+
+      </div>
+
     </Link>
   );
 }

@@ -27,7 +27,6 @@ import { isAdmin } from "../utils";
   });
   const handleEdit = (id) => {
     navigate(`/editcar/${id}`);
-    console.log(`Edit product with id: ${id}`);
   };
 
   const handleCreateCar = () => {
@@ -79,10 +78,13 @@ import { isAdmin } from "../utils";
             id={product._id}
             image={product.image}
             title={product.model}
-            description={data.description}
+            description={product.description}
             price={product.price}
             onEdit={handleEdit}
             onDelete={handleDelete}
+            isSold={product.isSold}
+            isAvailable={product.isAvailable}
+            year={product.year}
           />
         ))}
       </div>

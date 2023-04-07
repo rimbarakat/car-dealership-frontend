@@ -27,11 +27,11 @@ function CarEditForm() {
   const [gearBox, setGearBox] = useState('');
   const [gearBoxShort, setGearBoxShort] = useState('');
   const [image, setImage] = useState('');
-  const [isAvailable, setIsAvailable] = useState(true);
-  const [isSold, setIsSold] = useState(false);
+  const [isAvailable, setIsAvailable] = useState();
+  const [isSold, setIsSold] = useState();
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const { data, err, isLoading } = useQuery(["getCar", id], getCar);
+  const { data, err, isLoading, refetch } = useQuery(["getCar", id], getCar);
   useEffect(() => {
     if (data) {
       setColor(data.color);
@@ -59,13 +59,11 @@ function CarEditForm() {
       setError("Car not editted"); 
     },
     onSuccess: (data) => {
-
+      refetch();
       navigate("/dashboard");
     },
   });
-  function handleClick() {
-    navigate("/dashboard")
-  }
+
 
   const handleColorChange = (event) => {
     setColor(event.target.value);
@@ -150,6 +148,7 @@ function CarEditForm() {
     const price_int = parseFloat(price.replace(',', '')); // convert price string to float
   
     const newCarListing = {
+      id,
       color,
       model,
       description,
@@ -169,9 +168,8 @@ function CarEditForm() {
       isAvailable,
       isSold,
     };
-
-    console.log(newCarListing);
-  //editCarMutation.mutate(newCarListing);
+    
+    editCarMutation.mutate(newCarListing);
    };
   return (
     <div className="register-page">
@@ -322,18 +320,20 @@ function CarEditForm() {
             id="issold"
             value={isSold}
             onChange={handleIsSoldChange}
+            defaultChecked={isSold}
           />
         </div>
         <div className="form-field">
-          <label htmlFor="isAvailable">Is isAvailable:</label>
+          <label htmlFor="isAvailable">Is Available:</label>
           <input
             type="checkbox"
             id="isAvailable"
             value={isAvailable}
             onChange={handleIsAvailableChange}
+            defaultChecked={isAvailable}
           />
         </div>
-        <button type="submit" onClick={handleCreateListing}>Create Listing</button>
+        <button type="submit" onClick={handleCreateListing}>Edit Listing</button>
       </form>
     </div>
   );
