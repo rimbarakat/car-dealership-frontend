@@ -181,7 +181,7 @@ function CarForm() {
         <div className="form-field">
           <label htmlFor="mileage">Mileage:</label>
           <input
-            type="number"
+            type="text"
             id="mileage"
             value={mileage}
             onChange={handleMileageChange}
@@ -197,7 +197,7 @@ function CarForm() {
           />
         </div>
         <div className="form-field">
-          <label htmlFor="price">Price:</label>
+          <label htmlFor="price">Price: ($)</label>
           <input
             type="text"
             id="price"

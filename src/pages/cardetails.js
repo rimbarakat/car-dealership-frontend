@@ -39,7 +39,7 @@ function CarDetails() {
         <td className="left">
 
         <div className="PriceBox">
-          <h className="PriceH">{data.model}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{data.price}</h>
+          <h className="PriceH">{data.model}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${data.price}</h>
         </div>
         <div className="Line1"></div>
 

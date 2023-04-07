@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../css/register.css";
 import { useQuery } from "react-query";
-import { createCar } from "../api/create.car";
+import { editCar } from "../api/edit.car";
 import { useMutation } from "react-query";
 import { useParams } from "react-router-dom";
 import { getCar } from '../api/car.details';
@@ -54,7 +54,7 @@ function CarEditForm() {
       setIsSold(data.isSold);
     }
   }, [data]);
-  const createCarMutation = useMutation(createCar, {
+  const editCarMutation = useMutation(editCar, {
     onError: (error) => {
       setError("Car not editted"); 
     },
@@ -166,11 +166,12 @@ function CarEditForm() {
       gearBox,
       gearBoxShort,
       image,
-      isAvailable: true,
-      isSold: false,
+      isAvailable,
+      isSold,
     };
 
-  createCarMutation.mutate(newCarListing);
+    console.log(newCarListing);
+  //editCarMutation.mutate(newCarListing);
    };
   return (
     <div className="register-page">
@@ -209,7 +210,7 @@ function CarEditForm() {
         <div className="form-field">
           <label htmlFor="mileage">Mileage:</label>
           <input
-            type="number"
+            type="text"
             id="mileage"
             value={mileage}
             onChange={handleMileageChange}
@@ -312,6 +313,24 @@ function CarEditForm() {
             id="image"
             value={image}
             onChange={handleImageChange}
+          />
+        </div>
+        <div className="form-field">
+          <label htmlFor="price">Is Sold:</label>
+          <input
+            type="checkbox"
+            id="issold"
+            value={isSold}
+            onChange={handleIsSoldChange}
+          />
+        </div>
+        <div className="form-field">
+          <label htmlFor="isAvailable">Is isAvailable:</label>
+          <input
+            type="checkbox"
+            id="isAvailable"
+            value={isAvailable}
+            onChange={handleIsAvailableChange}
           />
         </div>
         <button type="submit" onClick={handleCreateListing}>Create Listing</button>

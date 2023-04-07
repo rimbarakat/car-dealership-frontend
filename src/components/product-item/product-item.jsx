@@ -25,7 +25,7 @@ function ProductItem(props) {
         </p>
         <h3 className="dashboard-item-title">{props.title}</h3>
         <p className="dashboard-item-description">{props.description}</p>
-        <p className="dashboard-item-price">Price: {props.price}</p>
+        <p className="dashboard-item-price">Price: ${props.price}</p>
         <div className="dashboard-item-buttons">
           {isAdmin() ? (
             <>

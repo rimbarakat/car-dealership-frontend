@@ -8,6 +8,7 @@ import { useState } from "react";
 import { deleteCar } from "../api/car.delete";
 import { useMutation } from "react-query";
 import { useNavigate } from 'react-router-dom';
+import { isAdmin } from "../utils";
 
 
   function Dashboard() {
@@ -27,6 +28,10 @@ import { useNavigate } from 'react-router-dom';
   const handleEdit = (id) => {
     navigate(`/editcar/${id}`);
     console.log(`Edit product with id: ${id}`);
+  };
+
+  const handleCreateCar = () => {
+    navigate(`/createcar`);
   };
 
   const handleDelete = (id, event) => {
@@ -53,6 +58,19 @@ import { useNavigate } from 'react-router-dom';
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}/>
       </div>
+      <div className="dashboard-item-buttons">
+          {isAdmin() ? (
+            <>
+              <button
+                className="addcar-button"
+                onClick={(event) => handleCreateCar(event)}
+              >
+                + Add Car
+              </button>
+  
+            </>
+          ): null }
+        </div>
       <div className="dashboard-list">
         {filteredData.map((product) => (
 

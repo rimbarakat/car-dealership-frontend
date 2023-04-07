@@ -1,6 +1,6 @@
 .dashboard-title {
   font-size: 3rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -90,4 +90,14 @@ img {
 .dashboard-link {
   color: inherit;
   text-decoration: none;
+}
+
+.addcar-button {
+  display: flex;
+  justify-content: space-between;
+  width: 13%;
+  height: 4rem;
+  align-items: center;
+  font-size: 1.3rem;
+  margin-left: 1rem;
 }
