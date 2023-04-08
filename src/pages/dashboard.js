@@ -15,6 +15,8 @@ import { isAdmin } from "../utils";
   const { data, error, isLoading, refetch } = useQuery("getCars", getCars);
   const [searchTerm,setSearchTerm]=useState('');
   const [selectedYear, setSelectedYear] = useState([]);
+  const [maxPrice, setMaxPrice] = useState('');
+  const [minPrice, setMinPrice] = useState('');
   const navigate = useNavigate();
 
   const deleteCarMutation = useMutation(deleteCar, {
@@ -47,6 +49,8 @@ import { isAdmin } from "../utils";
   const filteredData = data.data.filter((product) =>
     product.model.toLowerCase().includes(searchTerm.toLowerCase())
     && product.year.includes(selectedYear)
+    && (maxPrice ? product.price_int <= maxPrice : true)
+    && (minPrice ? product.price_int >= minPrice : true)
   );
   const yearOptions = [];
     for (let i = 2000; i <= 2023; i++) {
@@ -73,6 +77,20 @@ import { isAdmin } from "../utils";
               </option>
           ))}
           </select>
+          </div>
+          <div className="dashboard-price">
+            <p className="priceFilter">Min Price:</p>
+            <input
+              type="number"
+              value={minPrice}
+              onChange={(event) => setMinPrice(event.target.value)}
+            />
+            <p className="priceFilter">Max Price:</p>
+            <input
+              type="number"
+              value={maxPrice}
+              onChange={(event) => setMaxPrice(event.target.value)}
+            />
           </div>
       <div className="dashboard-item-buttons">
           {isAdmin() ? (
