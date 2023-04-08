@@ -79,17 +79,19 @@ import { isAdmin } from "../utils";
           </select>
           </div>
           <div className="dashboard-price">
-            <p className="priceFilter">Min Price:</p>
+            <p className="priceFilter"></p>
             <input
               type="number"
               value={minPrice}
               onChange={(event) => setMinPrice(event.target.value)}
+              placeholder="Min"
             />
-            <p className="priceFilter">Max Price:</p>
+            <p className="priceFilter"></p>
             <input
               type="number"
               value={maxPrice}
               onChange={(event) => setMaxPrice(event.target.value)}
+              placeholder="Max"
             />
           </div>
       <div className="dashboard-item-buttons">

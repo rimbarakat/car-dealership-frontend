@@ -50,8 +50,10 @@
 .dashboard-search button:hover {
   background-color: #0069d9;
 }
+
 .dashboard-select {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   margin: 1rem auto;
@@ -88,7 +90,53 @@
 .dashboard-select select option {
   font-size: 1rem;
 }
+.dashboard-price {
+  display: flex;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+.dashboard-price input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  outline: none;
+  margin-right: 0.5rem;
+  height: 30px;
+}
+
+.dashboard-price input:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0b84e8;
+}
+
+.dashboard-price .price-dash {
+  margin: 0 0.5rem;
+}
+
+.dashboard-price input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.dashboard-price input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  width: 50%;
+}
+.dashboard-price input[type=number]:focus {
+  box-shadow: none;
+  border-color: #0b84e8;
+}
+
+.dashboard-price input[type=number]:focus::-webkit-inner-spin-button {
+  display: none;
+}
 
 
-
+ 
 
