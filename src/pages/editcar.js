@@ -134,6 +134,7 @@ function CarEditForm() {
   };
 
   const handleIsSoldChange = (event) => {
+    console.log("Checked:", event.target.checked);
     setIsSold(event.target.checked);
   };
 
@@ -319,7 +320,7 @@ function CarEditForm() {
             type="checkbox"
             id="issold"
             value={isSold}
-            onChange={handleIsSoldChange}
+            onClick={handleIsSoldChange}
             defaultChecked={isSold}
           />
         </div>
@@ -329,7 +330,7 @@ function CarEditForm() {
             type="checkbox"
             id="isAvailable"
             value={isAvailable}
-            onChange={handleIsAvailableChange}
+            onClick={handleIsAvailableChange}
             defaultChecked={isAvailable}
           />
         </div>
