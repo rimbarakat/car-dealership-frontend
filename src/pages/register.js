@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../css/register.css";
+import { register } from '../api/auth.service';
+import { useMutation } from "react-query";
 
 function RegisterPage(){
 const [fullName, setFullName] = useState('');
@@ -10,8 +12,17 @@ const [confirmPassword, setConfirmPassword] = useState('');
 const [error, setError] = useState('');
 const navigate= useNavigate();
 
+const registerMutation = useMutation(register, {
+  onError: (error) => {
+    setError("failed"); //not necessarily wrong credentials, but keep like this for now.
+  },
+  onSuccess: (data) => {
+    navigate("/login");
+  },
+});
+
 function handleClick(){
-navigate("/dashboard")
+  registerMutation.mutate({ fullName, email, password });
 }
 
 const handleFullNameChange = (event) => {
