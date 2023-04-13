@@ -7,8 +7,8 @@ function ContactUs() {
       <h1 className="contactUs-heading">Contact Us</h1>
       <p className="contactUs-description">You can contact us at:</p>
       <ul>
-        <li>Email: contact@dummycompany.com</li>
-        <li>Phone: 123-456-7890</li>
+        <li>Email: carlot@gmail.com</li>
+        <li>Phone: 01-102030</li>
       </ul>
     </div>
   );
