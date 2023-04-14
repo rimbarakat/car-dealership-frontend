@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
+
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { getCarBookings } from "../api/cars.bookings";
 import { getCar } from "../api/car.details";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -11,15 +14,28 @@ function RequestTestDrive() {
   const [bookedDates, setBookedDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const [timeSlots1, setTimeSlots] = useState([]);
   const { id } = useParams();
   const { data} = useQuery(["getCar", id], getCar);
-  console.log(data);
   
-  const handleDateClick = (date) => {
+  const handleDateClick = async (date) => {
     if (!bookedDates.find(bookedDate => bookedDate.date.toDateString() === date.toDateString()) && date >= new Date()) {
       setSelectedDate(date);
+      const slots = await getCarBookings(id, date);
+      setTimeSlots(slots);
     }
   };
+
+  //useEffect(() => {
+    //if (selectedDate) {
+     // const fetchTimeSlots = async () => {
+      //  const timeSlotsData = await getCarBookings(id,selectedDate);
+       // console.log(timeSlotsData)
+        //setTimeSlots(timeSlotsData);
+     // };
+     // fetchTimeSlots();
+   // }
+ // }, [selectedDate]);
 
   const handleTimeClick = (time) => {
     setSelectedTime(time);
@@ -49,7 +65,6 @@ function RequestTestDrive() {
     );
   };
 
-  const availableTimings = ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM'];
 
   const today = new Date();
   const todayIndex = [0, 1, 2, 3, 4, 5, 6].findIndex(i => date.toLocaleDateString() === new Date(today.getFullYear(), today.getMonth(), today.getDate() + i).toLocaleDateString());
@@ -72,28 +87,33 @@ function RequestTestDrive() {
       </div>
       {selectedDate && (
         <div className='modal'>
-          <h2>Select a Timing for {selectedDate.toDateString()}</h2>
-          <ul>
-            {availableTimings.map((time, index) => (
-              <li key={index}>
-                <button 
-                  disabled={isBookedTime(time)}
-                  className={selectedTime === time ? 'active' : ''}
-                  onClick={() => handleTimeClick(time)}
-                >
-                  {time}
-                </button>
-              </li>
-            ))}
-          </ul>
-          <button 
-            className='confirm-button'
-            disabled={!selectedTime}
-            onClick={handleConfirmClick}
-          >
-            Confirm
-          </button>
-        </div>
+        <h2>Select a Timing for {selectedDate.toDateString()}</h2>
+        <ul>
+          {timeSlots1.map((slot, index) => {
+            if (slot.isAvailable) {
+              return (
+                <li key={index}>
+                  <button
+                    className={selectedTime === slot.from ? 'active' : ''}
+                    onClick={() => handleTimeClick(slot.from)}
+                  >
+                    {slot.from.split(':')[0]}-{slot.to.split(':')[0]}
+                  </button>
+                </li>
+              );
+            }
+            return null;
+          })}
+        </ul>
+        <button
+          className='confirm-button'
+          disabled={!selectedTime}
+          onClick={handleConfirmClick}
+        >
+          Confirm
+        </button>
+      </div>
+      
       )}
       {bookedDates.length > 0 ? (
         <p className='text-center'>
