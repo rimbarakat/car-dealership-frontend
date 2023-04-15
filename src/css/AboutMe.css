@@ -1,0 +1,7 @@
+.form{
+    width: 15rem;
+    line-height: 3rem;
+    display: flex;
+    margin: auto;   
+    margin-bottom: 3rem; 
+}
