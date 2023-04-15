@@ -14,6 +14,7 @@ import Appointments from "./pages/Forms";
 import RequestTestDrive from "./pages/schedule";
 import CarForm from "./pages/createcar";
 import CarEditForm from "./pages/editcar";
+import AboutMe from "./pages/AboutMe";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/request_testdrive" element={<RequestTestDrive/>}/>
           <Route path="/createcar" element={<CarForm/>}/>
           <Route path="/editcar/:id" element={<CarEditForm/>}></Route>
+          <Route path="/AboutMe" element={<AboutMe />} />
         </Routes>
         <Footer />
       </Router>

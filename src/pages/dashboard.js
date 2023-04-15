@@ -59,7 +59,7 @@ import { isAdmin } from "../utils";
 
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-title">Product List</h1>
+      <h1 className="dashboard-title">Our rides</h1>
       <div className="dashboard-search">
         <input
           type="text"
