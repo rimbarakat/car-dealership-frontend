@@ -15,6 +15,7 @@ import RequestTestDrive from "./pages/schedule";
 import CarForm from "./pages/createcar";
 import CarEditForm from "./pages/editcar";
 import AboutMe from "./pages/AboutMe";
+import CarComparison from "./pages/CarComparison";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/createcar" element={<CarForm/>}/>
           <Route path="/editcar/:id" element={<CarEditForm/>}></Route>
           <Route path="/AboutMe" element={<AboutMe />} />
+          <Route path="/compare" element={<CarComparison />} />
         </Routes>
         <Footer />
       </Router>
