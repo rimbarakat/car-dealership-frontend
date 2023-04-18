@@ -35,6 +35,9 @@ import { isAdmin } from "../utils";
   const handleCreateCar = () => {
     navigate(`/createcar`);
   };
+  const handleCompareClick= () => {
+    navigate(`/compare`);
+  };
 
   const handleDelete = (id, event) => {
     deleteCarMutation.mutate(id);  
@@ -105,7 +108,15 @@ import { isAdmin } from "../utils";
               </button>
   
             </>
-          ): null }
+          ): (
+            <>
+              <button className="addcar-button" 
+              onClick={(event) => handleCompareClick(event)} 
+              >
+                Compare
+                </button>
+            </>
+          )}
         </div>
       <div className="dashboard-list">
         {filteredData.map((product) => (
