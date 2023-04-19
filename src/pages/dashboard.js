@@ -63,45 +63,50 @@ import { isAdmin } from "../utils";
   return (
     <div className="dashboard-container">
       <h1 className="dashboard-title">Our rides</h1>
-      <div className="dashboard-search">
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value)}/>
-      </div>
-      <div className="dashboard-select">
-        <p className="yearFilter">Year :</p>
-        <select value={selectedYear} onChange={(event) => setSelectedYear(event.target.value)}>
-          <option value="">All Years</option>
-          {yearOptions.map((year) => (
-            <option key={year} value={year}>
-              {year}
+        <div style={{ display: 'flex' }}>
+        <div className="dashboard-search" style={{ marginRight: '16px' }}>
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+        </div>
+        <div className="dashboard-select" style={{ marginRight: '16px' }}>
+          <p className="yearFilter">Year:</p>
+          <select value={selectedYear} onChange={(event) => setSelectedYear(event.target.value)}>
+            <option value="">All Years</option>
+            {yearOptions.map((year) => (
+              <option key={year} value={year}>
+                {year}
               </option>
-          ))}
+            ))}
           </select>
-          </div>
-          <div className="dashboard-price">
-            <p className="priceFilter"></p>
-            <input
-              type="number"
-              value={minPrice}
-              onChange={(event) => setMinPrice(event.target.value)}
-              placeholder="Min"
-            />
-            <p className="priceFilter"></p>
-            <input
-              type="number"
-              value={maxPrice}
-              onChange={(event) => setMaxPrice(event.target.value)}
-              placeholder="Max"
-            />
-          </div>
-      <div className="dashboard-item-buttons">
+        </div>
+        <div className="dashboard-price">
+          <p className="priceFilter" style={{ marginRight: '8px' }}>Price:</p>
+          <input
+            type="number"
+            value={minPrice}
+            onChange={(event) => setMinPrice(event.target.value)}
+            placeholder="Min"
+            style={{ marginRight: '16px', width: '120px' }}
+          />
+          <input
+            type="number"
+            value={maxPrice}
+            onChange={(event) => setMaxPrice(event.target.value)}
+            placeholder="Max"
+            style={{width: '120px'}}
+
+          />
+        </div>
+        <div className="compare-add-but">
           {isAdmin() ? (
             <>
               <button
                 className="addcar-button"
+                style={{width: '120px' }}
                 onClick={(event) => handleCreateCar(event)}
               >
                 + Add Car
@@ -111,6 +116,7 @@ import { isAdmin } from "../utils";
           ): (
             <>
               <button className="addcar-button" 
+              style={{width: '120px', height: '49px', marginRight: '1rem'}}
               onClick={(event) => handleCompareClick(event)} 
               >
                 Compare
@@ -118,6 +124,8 @@ import { isAdmin } from "../utils";
             </>
           )}
         </div>
+      </div>
+      
       <div className="dashboard-list">
         {filteredData.map((product) => (
 

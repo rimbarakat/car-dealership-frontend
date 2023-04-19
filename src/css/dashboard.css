@@ -1,7 +1,9 @@
+
+
 .dashboard-container {
   margin: 0 auto;
   padding: 20px;
-  min-height: 100%;
+  min-height: 60%;
   display:flex;
   flex-direction: column;
 }
@@ -11,10 +13,10 @@
 }
 
 .dashboard-search {
-  margin: 1rem auto;
-  display: flex;
-  align-items: center;
-  width: 75%;
+  display:flex;
+  margin-top: 2rem;
+  align-items:end;
+  width: 40%;
   height: 30px;
 }
 
@@ -56,7 +58,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 1rem auto;
 }
 
 .dashboard-select select {
@@ -136,7 +137,4 @@
 .dashboard-price input[type=number]:focus::-webkit-inner-spin-button {
   display: none;
 }
-
-
-
 
