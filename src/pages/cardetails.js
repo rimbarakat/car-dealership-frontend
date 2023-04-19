@@ -2,14 +2,19 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getCar } from "../api/car.details";
 import RequestTestDrive from './schedule.js'
-import Dashboard from "./dashboard";
 import '../css/cardetails.css'
-import ProductItem from "../components/product-item/product-item";
+import { isAdmin } from "../utils";
+import { useNavigate } from "react-router-dom";
+
 
 function CarDetails() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { data, error, isLoading } = useQuery(["getCar", id], getCar);
   console.log(data);
+  const handleShowbookings = () => {
+    navigate("/bookings");
+  }
   
   if (error) {
     return <div>Error!</div>;
@@ -92,8 +97,11 @@ function CarDetails() {
         <td className="right">
           
           <div className="mobile-menu">
+          {isAdmin() ? <button className="btn btn-primary" onClick={handleShowbookings}>Show bookings</button> : null}
+
             
             <RequestTestDrive />
+
           
           </div>  
         
