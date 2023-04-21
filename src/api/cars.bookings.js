@@ -12,7 +12,19 @@ function formatDate(date) {
 export const getCarBookings = async (id,date) => {
     //turn the date to the following format YYYY-MM-DD
     const response = await api.get(`/cars/${id}/slots?date=${formatDate(date)}`);
-    return response.data[0].timeSlots;
+    console.log(response.data)
+    return response.data;
+}
+
+export const sendBooking = async (id, from,to, Date) => {
+    const booking = {
+        date : formatDate(Date),
+        from: from,
+        to: to
+    }
+    const response = await api.post(`/cars/${id}/bookings`, booking);
+    console.log(response.data)
+    return response.data;
 }
 
 

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { getCarBookings } from "../api/cars.bookings";
+import { getCarBookings, sendBooking } from "../api/cars.bookings";
 import { getCar } from "../api/car.details";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -14,7 +14,7 @@ function RequestTestDrive() {
   const [bookedDates, setBookedDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-  const [timeSlots1, setTimeSlots] = useState([]);
+  const [timeSlots, setTimeSlots] = useState([]);
   const { id } = useParams();
   const { data} = useQuery(["getCar", id], getCar);
   
@@ -22,27 +22,30 @@ function RequestTestDrive() {
     if (!bookedDates.find(bookedDate => bookedDate.date.toDateString() === date.toDateString()) && date >= new Date()) {
       setSelectedDate(date);
       const slots = await getCarBookings(id, date);
+      console.log(slots)
       setTimeSlots(slots);
     }
   };
 
-  //useEffect(() => {
-    //if (selectedDate) {
-     // const fetchTimeSlots = async () => {
-      //  const timeSlotsData = await getCarBookings(id,selectedDate);
-       // console.log(timeSlotsData)
-        //setTimeSlots(timeSlotsData);
-     // };
-     // fetchTimeSlots();
-   // }
- // }, [selectedDate]);
+  
 
   const handleTimeClick = (time) => {
     setSelectedTime(time);
   };
 
+  //function that take time in the following from 18:00 and return the nex time 19:00
+  const getNextTime = (time) => {
+    const [hours, minutes] = time.split(':');
+    const nextHours = parseInt(hours) + 1;
+    return `${nextHours}:00`;
+  };
+
+
   const handleConfirmClick = () => {
     setBookedDates([...bookedDates, { date: selectedDate, time: selectedTime }]);
+    const from = selectedTime
+    const to = getNextTime(selectedTime)
+    const send = sendBooking(id, from, to, selectedDate);
     setSelectedDate(null);
     setSelectedTime(null);
   };
@@ -89,7 +92,7 @@ function RequestTestDrive() {
         <div className='modal'>
         <h2>Select a Timing for {selectedDate.toDateString()}</h2>
         <ul>
-          {timeSlots1.map((slot, index) => {
+          {timeSlots.map((slot, index) => {
             if (slot.isAvailable) {
               return (
                 <li key={index}>
