@@ -14,8 +14,9 @@ function CarDetails() {
   const { data, error, isLoading } = useQuery(["getCar", id], getCar);
   console.log(data);
   const handleShowbookings = async  () => {
-    const bookings = await getSpecificCarBooking(id);
-    console.log(bookings.bookings);
+    navigate(`/cars/${id}/bookings`);
+    //const bookings = await getSpecificCarBooking(id);
+    //console.log(bookings.bookings);
     //keep it bookings.bookings because the api returns an object with a key called bookings and the value is an array of bookings you dont need the other attributes
     //navigate("/bookings");
   }
