@@ -16,6 +16,13 @@ export const getCarBookings = async (id,date) => {
     return response.data;
 }
 
+export const getSpecificCarBooking = async (id) => {
+    const response = await api.get(`/cars/${id}/bookings/`);
+    console.log(response.data)
+    return response.data;
+}
+
+
 export const sendBooking = async (id, from,to, Date) => {
     const booking = {
         date : formatDate(Date),

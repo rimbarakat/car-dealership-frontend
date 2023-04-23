@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { getCar } from "../api/car.details";
 import RequestTestDrive from './schedule.js'
 import '../css/cardetails.css'
+import { getSpecificCarBooking } from "../api/cars.bookings";
 import { isAdmin } from "../utils";
 import { useNavigate } from "react-router-dom";
 
@@ -12,8 +13,11 @@ function CarDetails() {
   const { id } = useParams();
   const { data, error, isLoading } = useQuery(["getCar", id], getCar);
   console.log(data);
-  const handleShowbookings = () => {
-    navigate("/bookings");
+  const handleShowbookings = async  () => {
+    const bookings = await getSpecificCarBooking(id);
+    console.log(bookings.bookings);
+    //keep it bookings.bookings because the api returns an object with a key called bookings and the value is an array of bookings you dont need the other attributes
+    //navigate("/bookings");
   }
   
   if (error) {
