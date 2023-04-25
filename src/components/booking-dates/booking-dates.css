@@ -5,6 +5,7 @@
 .fc-day-today {
     background: #FFF !important;
     border: none !important;
+    z-index: 1;
 } 
 
 .fc-event {

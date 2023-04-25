@@ -3,9 +3,13 @@ import Fullcalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import { useState } from "react";
+import DeleteDialog from "./delete-dialog";
 import "./booking-dates.css";
 
-function Calendar({bookings}){
+function Calendar({bookings, onDeleteBooking}){
+    const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+    const [bookingId, setBookingId] = useState(null);
     console.log(bookings);
     bookings.forEach(booking => {
         if (booking.from === '9:00') {
@@ -25,11 +29,20 @@ function Calendar({bookings}){
       });
     console.log(events)
     
+    function handleEventClick(info) {
+        const bookingId = info.event.title.split(" ")[1]; // Extract the booking ID from the event title
+        setBookingId(bookingId);
+        setDeleteDialogOpen(true);
+      }
+      
+    
     return (
+        <div>
         <Fullcalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             initialView="timeGridWeek"
             events={events}
+            eventClick={handleEventClick}
             eventDisplay="block"
             eventColor="#007bff"
             eventTextColor="#fff"
@@ -62,6 +75,14 @@ function Calendar({bookings}){
                     }
             }
         }/>
+       {/* <DeleteDialog
+            open={deleteDialogOpen}
+            onClose={() => setDeleteDialogOpen(false)}
+            onDelete={() => onDeleteBooking(bookingId)}
+        />*/} 
+        </div>
+        
+
     ); 
 }
 export default Calendar;
