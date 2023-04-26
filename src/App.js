@@ -17,6 +17,7 @@ import CarEditForm from "./pages/editcar";
 import AboutMe from "./pages/AboutMe";
 import CarComparison from "./pages/CarComparison";
 import CarBooking from "./pages/CarBooking";
+import AllBookings from "./pages/allbookings";
 
 const queryClient = new QueryClient();
 
@@ -40,8 +41,9 @@ function App() {
           <Route path="/AboutMe" element={<AboutMe />} />
           <Route path="/compare" element={<CarComparison />} />
           <Route exact path="/cars/:id/bookings" element={<CarBooking/>}/>
+          <Route path="/allbookings" element={<AllBookings/>}/>
         </Routes>
-        <Footer />
+        {/* <Footer/> */}
       </Router>
     </QueryClientProvider>
   );
