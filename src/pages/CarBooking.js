@@ -17,10 +17,12 @@ function CarBooking() {
     }
     fetchBookings();
   }, [id]);
-  console.log(data.model);
+  
 
   
-    
+    console.log("Hel1")
+    console.log(data)
+    console.log("Hel2")
 
   
 
@@ -28,7 +30,7 @@ function CarBooking() {
     <div>
       <h2>Bookings for Car {data.model}</h2>
       <div className="calendar1-container">
-        <Calendar bookings={bookings} />
+        <Calendar bookings={bookings} carID={id} />
       </div>
     </div>
   );

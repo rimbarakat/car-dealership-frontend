@@ -5,18 +5,18 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { useState } from "react";
 import DeleteDialog from "./delete-dialog";
-//import {deleteBooking} from "../../api/car.booking";
+import {deleteBooking} from "../../api/cars.bookings";
 import "./booking-dates.css";
 
-function Calendar({bookings, onDeleteBooking}){
+function Calendar({bookings, carID}){
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
     const [bookingId, setBookingId] = useState(null);
-    console.log(bookings);
     bookings.forEach(booking => {
         if (booking.from === '9:00') {
             booking.from = '09:00';
         }
     });
+    
 
     const events = bookings.map(booking => {
         let startDateTime = (`${booking.date}T${booking.from}:00`);
@@ -28,17 +28,26 @@ function Calendar({bookings, onDeleteBooking}){
           allDay: false,
         };
       });
-    console.log(events)
     
     function handleEventClick(info) {
         const bookingId = info.event.title.split(" ")[1]; // Extract the booking ID from the event title
         setBookingId(bookingId);
+
         setDeleteDialogOpen(true);
       }
 
-    
-
-      
+    async function onDeleteBooking(bookingId) {
+        try {
+            await deleteBooking(carID, bookingId);
+            setDeleteDialogOpen(false);
+            //refresh the page
+            window.location.reload();
+            
+            
+        } catch (error) {
+            console.error(error);
+        }
+    }
     
     return (
         <div>

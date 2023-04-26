@@ -36,7 +36,7 @@ export const sendBooking = async (id, from,to, Date) => {
 
 
 export const deleteBooking = async (id, bookingId) => {
-    const response = await api.delete(`/cars/${id}/bookings`,bookingId);
+    const response = await api.delete(`/cars/${id}/bookings/${bookingId}`);
     console.log(response.data)
     return response.data;
 }
