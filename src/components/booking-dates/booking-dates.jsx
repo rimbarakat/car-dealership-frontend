@@ -41,8 +41,7 @@ function Calendar({bookings, carID}){
             await deleteBooking(carID, bookingId);
             setDeleteDialogOpen(false);
             //refresh the page
-            window.location.reload();
-            
+
             
         } catch (error) {
             console.error(error);
