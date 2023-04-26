@@ -5,6 +5,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { useState } from "react";
 import DeleteDialog from "./delete-dialog";
+//import {deleteBooking} from "../../api/car.booking";
 import "./booking-dates.css";
 
 function Calendar({bookings, onDeleteBooking}){
@@ -34,6 +35,9 @@ function Calendar({bookings, onDeleteBooking}){
         setBookingId(bookingId);
         setDeleteDialogOpen(true);
       }
+
+    
+
       
     
     return (
@@ -75,14 +79,15 @@ function Calendar({bookings, onDeleteBooking}){
                     }
             }
         }/>
-       {/* <DeleteDialog
+        <DeleteDialog
             open={deleteDialogOpen}
             onClose={() => setDeleteDialogOpen(false)}
             onDelete={() => onDeleteBooking(bookingId)}
-        />*/} 
+        />
         </div>
         
 
     ); 
 }
+
 export default Calendar;

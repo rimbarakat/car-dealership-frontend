@@ -1,5 +1,6 @@
 .delete-dialog-backdrop {
     position: fixed;
+    z-index: 10; /* Increase the z-index value here */
     top: 0;
     left: 0;
     width: 100%;
@@ -18,7 +19,6 @@
     background: white;
     border-radius: 5px;
     padding: 20px;
-    z-index: 9999; /* Increase the z-index value here */
   }
   
   .delete-dialog-actions {
