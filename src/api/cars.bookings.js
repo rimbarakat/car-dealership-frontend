@@ -17,7 +17,7 @@ export const getCarBookings = async (id,date) => {
 }
 
 export const getSpecificCarBooking = async (id) => {
-    const response = await api.get(`/cars/${id}/bookings/`);
+    const response = await api.get(`/bookings/${id}`);
     console.log(response.data)
     return response.data;
 }
@@ -29,14 +29,14 @@ export const sendBooking = async (id, from,to, Date) => {
         from: from,
         to: to
     }
-    const response = await api.post(`/cars/${id}/bookings`, booking);
+    const response = await api.post(`/bookings/${id}`, booking);
     console.log(response.data)
     return response.data;
 }
 
 
 export const deleteBooking = async (id, bookingId) => {
-    const response = await api.delete(`/cars/${id}/bookings/${bookingId}`);
+    const response = await api.delete(`/bookings/${id}/${bookingId}`);
     console.log(response.data)
     return response.data;
 }
