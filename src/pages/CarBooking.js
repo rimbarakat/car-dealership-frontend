@@ -9,7 +9,7 @@ function CarBooking() {
   const [bookings, setBookings] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const { id } = useParams();
-  const { data } = useQuery(["getCar", id], getCar);
+  const { isLoading, data } = useQuery(["getCar", id], getCar);
   useEffect(() => {
     const fetchBookings = async () => {
       const bookings = await getSpecificCarBooking(id);
@@ -25,7 +25,9 @@ function CarBooking() {
   }
 
   
-
+  if(isLoading){
+    return <div>Loading...</div>
+  }
   return (
     <div>
       <h2>Bookings for Car {data.model}</h2>
