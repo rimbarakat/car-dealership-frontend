@@ -7,6 +7,7 @@ import Calendar from "../components/booking-dates/booking-dates";
 import "../css/CarBooking.css";
 function CarBooking() {
   const [bookings, setBookings] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   const { id } = useParams();
   const { data } = useQuery(["getCar", id], getCar);
   useEffect(() => {
@@ -16,13 +17,12 @@ function CarBooking() {
       console.log(bookings.bookings)
     }
     fetchBookings();
-  }, [id]);
-  
+  }, [id,refresh]);
 
-  
-    console.log("Hel1")
-    console.log(data)
-    console.log("Hel2")
+  const handleBookingDeleted = async (bookingId) => {
+    setRefresh(prev => !prev);
+
+  }
 
   
 
@@ -30,7 +30,7 @@ function CarBooking() {
     <div>
       <h2>Bookings for Car {data.model}</h2>
       <div className="calendar1-container">
-        <Calendar bookings={bookings} carID={id} />
+        <Calendar bookings={bookings} carID={id} onBookingDeleted={handleBookingDeleted} />
       </div>
     </div>
   );

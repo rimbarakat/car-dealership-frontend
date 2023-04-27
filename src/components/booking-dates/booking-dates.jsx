@@ -8,7 +8,7 @@ import DeleteDialog from "./delete-dialog";
 import {deleteBooking} from "../../api/cars.bookings";
 import "./booking-dates.css";
 
-function Calendar({bookings, carID}){
+function Calendar({bookings, carID, onBookingDeleted}){
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
     const [bookingId, setBookingId] = useState(null);
     bookings.forEach(booking => {
@@ -40,9 +40,7 @@ function Calendar({bookings, carID}){
         try {
             await deleteBooking(carID, bookingId);
             setDeleteDialogOpen(false);
-            //refresh the page
-
-            
+            onBookingDeleted();
         } catch (error) {
             console.error(error);
         }
