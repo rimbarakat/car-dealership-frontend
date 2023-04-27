@@ -21,6 +21,7 @@ import { isAdmin } from "../utils";
 
   const deleteCarMutation = useMutation(deleteCar, {
     onError: (error) => {
+      refetch();
         console.log(error);
     },
     onSuccess: (data) => {
