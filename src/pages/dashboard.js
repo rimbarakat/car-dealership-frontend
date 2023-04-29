@@ -74,7 +74,7 @@ import { isAdmin } from "../utils";
           />
         </div>
         <div className="dashboard-select" style={{ marginRight: '16px' }}>
-          <p className="yearFilter">Year:</p>
+
           <select value={selectedYear} onChange={(event) => setSelectedYear(event.target.value)}>
             <option value="">All Years</option>
             {yearOptions.map((year) => (
@@ -85,19 +85,19 @@ import { isAdmin } from "../utils";
           </select>
         </div>
         <div className="dashboard-price">
-          <p className="priceFilter" style={{ marginRight: '8px' }}>Price:</p>
+
           <input
             type="number"
             value={minPrice}
             onChange={(event) => setMinPrice(event.target.value)}
-            placeholder="Min"
+            placeholder="Min Price"
             style={{ marginRight: '16px', width: '120px' }}
           />
           <input
             type="number"
             value={maxPrice}
             onChange={(event) => setMaxPrice(event.target.value)}
-            placeholder="Max"
+            placeholder="Max Price"
             style={{width: '120px'}}
 
           />
