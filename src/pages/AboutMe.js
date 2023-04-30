@@ -1,54 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import "../css/AboutMe.css";
+import { getUserInfo } from '../api/user.details';
+import { useQuery, useParams } from 'react-query';
+import jwt_decode from 'jwt-decode';
+import { editAboutme } from '../api/edit.aboutme';
+import { useMutation } from 'react-query';
 
-function AboutMe(props) {
+
+
+function AboutMe() {
+  const token = localStorage.getItem("token");
+  const decodedToken = jwt_decode(token); //needed to add this to get userId from token
+  const userId = decodedToken.id;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
+  const [error, setError] = useState("");
+  const { data, err, isLoading, refetch } = useQuery(["getUserInfo", userId], getUserInfo);
 
   useEffect(() => {
-    // Fetch the user's information from the backend and set the state variables
-    const fetchUser = async () => {
-      const response = await fetch(`/api/user/${props.userId}`);
-      const data = await response.json();
-      setName(data.name);
+    if (data) {
+      setName(data.fullName);
       setEmail(data.email);
       setPassword(data.password);
-      setPhone(data.phone);
-      setAddress(data.address);
+
     }
-    fetchUser();
-  }, [props.userId]);
+  }, [data]);
+  const editUserMutation = useMutation(editAboutme, {
+    onError: (error) => {
+      setError("user not updated"); 
+      console.log(error);
+    },
+    onSuccess: (data) => {
+      setError("user updated")
+    },
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(`/api/user/${props.userId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-        phone,
-        address
-      })
-    });
-    if (response.ok) {
-      // Show success message
-      console.log('User information updated successfully');
-    } else {
-      // Show error message
-      console.error('Error updating user information');
-    }
+
+    const newUser = {
+      userId,
+      name,
+      email,
+      password
+    };
+    editUserMutation.mutate(newUser);
+    
   };
 
   return (
-    <div className='form'>
-    <form onSubmit={handleSubmit}>
+    <div className='form' onSubmit={handleSubmit}>
+    <form >
+    {error && <div className="error">{error}</div>}
       <label>Name:</label>
       <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
       <br />
@@ -69,5 +75,13 @@ function AboutMe(props) {
     </div>
   );
 }
-
+// function getUserIdFromToken(token) {
+//   try {
+//     const decoded = jwt.decode(token);
+//     return decoded.userId; // or whatever key you're using for the userId claim
+//   } catch (error) {
+//     console.error('Error decoding token:', error);
+//     return null;
+//   }
+// }
 export default AboutMe;

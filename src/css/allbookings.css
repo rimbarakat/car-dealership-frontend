@@ -1,0 +1,34 @@
+.table-container-booking {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .booking-table {
+    border-collapse: collapse;
+    width: 80%;
+  }
+  
+  .booking-th, .booking-td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .booking-th {
+    background-color: #ddd;
+  }
+  
+  .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: darkred;
+  }
+  

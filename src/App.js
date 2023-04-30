@@ -38,7 +38,7 @@ function App() {
           <Route path="/request_testdrive" element={<RequestTestDrive/>}/>
           <Route path="/createcar" element={<CarForm/>}/>
           <Route path="/editcar/:id" element={<CarEditForm/>}></Route>
-          <Route path="/AboutMe" element={<AboutMe />} />
+          <Route exact path="/AboutMe" element={<AboutMe />} />
           <Route path="/compare" element={<CarComparison />} />
           <Route exact path="/cars/:id/bookings" element={<CarBooking/>}/>
           <Route path="/allbookings" element={<AllBookings/>}/>

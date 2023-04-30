@@ -17,7 +17,7 @@ function Calendar({bookings, carID, onBookingDeleted}){
         }
     });
     
-
+    console.log(bookings);
     const events = bookings.map(booking => {
         let startDateTime = (`${booking.date}T${booking.from}:00`);
         const endDateTime = (`${booking.date}T${booking.to}:00`);

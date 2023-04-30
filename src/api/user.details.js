@@ -1,7 +1,7 @@
 import api from "./api";
 
 export const getUserInfo = async (userId) => {
-    const _uid = (userId.queryKey[1]);               //ask
-    const response =  await api.get(`/user/${_uid}`);
+    const _uid = (userId.queryKey[1]);   
+    const response =  await api.get(`/users/${_uid}`);
     return response.data;
 };
