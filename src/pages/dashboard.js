@@ -3,7 +3,6 @@ import "../css/dashboard.css";
 import ProductItem from "../components/product-item/product-item";
 import { useQuery } from "react-query";
 import { getCars } from "../api/cars.service";
-import {Link} from "react-router-dom";
 import { useState } from "react";
 import { deleteCar } from "../api/car.delete";
 import { useMutation } from "react-query";

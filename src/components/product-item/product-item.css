@@ -123,5 +123,10 @@ img {
 @media screen and (max-width: 768px) {
   .dashboard-list {
     grid-template-columns: 1fr;
+
+  }
+  .dashboard-item-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 }

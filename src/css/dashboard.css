@@ -1,10 +1,8 @@
-
-
 .dashboard-container {
   margin: 0 auto;
   padding: 20px;
   min-height: 60%;
-  /* display:flex; */
+  display:flex;
   flex-direction: column;
 }
 .dashboard-link {
@@ -15,7 +13,7 @@
 .dashboard-search {
   display:flex;
   margin-top: 2rem;
-  align-items:end;
+  align-items: flex-end;
   width: 40%;
   height: 34px;
 }
@@ -141,6 +139,52 @@
   .test{
     display:block !important;
     flex-direction: row;
+    width: 100%;
+  }
+  .dashboard-search {
+    width: 100%;
+    margin-top: 2rem;
+    align-items: flex-end;
+    height: 34px;
+    margin-bottom: 2rem;
+  }
+  .dashboard-search input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    margin-right: 0.5rem;
+    height: 30px;
+  }
+  .dashboard-select {
+    width: 100% !important;
+    margin-bottom: 2rem;
+    align-items: center !important;
+    margin-right: 0 !important;
+    justify-content: left !important;
+  }
+  .dashboard-select select {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+    margin-left: 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    height: 50px;
+    margin-right: 0.5rem;
+  }
+  
+  .dashboard-select select {
+    width: 100%;
+  }
+  .dashboard-price {
+    width: 100%;
+  }
+  .dashboard-price input {
     width: 100%;
   }
 }
