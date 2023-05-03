@@ -64,8 +64,8 @@ import { isAdmin } from "../utils";
   return (
     <div className="dashboard-container">
       <h1 className="dashboard-title">Our rides</h1>
-        <div style={{ display: 'flex' }}>
-        <div className="dashboard-search" style={{ marginRight: '16px' }}>
+        <div className="test" style={{ display: 'flex' }}>
+        <div className="dashboard-search">
           <input
             type="text"
             placeholder="Search"

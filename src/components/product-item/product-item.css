@@ -120,3 +120,8 @@ img {
   margin-left: 1rem;
   min-width: 5rem;
 }
+@media screen and (max-width: 768px) {
+  .dashboard-list {
+    grid-template-columns: 1fr;
+  }
+}
