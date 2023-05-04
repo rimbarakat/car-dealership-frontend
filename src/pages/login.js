@@ -71,6 +71,7 @@ function LoginPage() {
   };
 
   return (
+    <div className="login">
     <div className="login-page">
       {/*isAdmin() &&*/ <h2>Login</h2>}
       {error && <div className="error">{error}</div>}
@@ -103,6 +104,7 @@ function LoginPage() {
           </a>
         </p>
       </div>
+    </div>
     </div>
   );
 }

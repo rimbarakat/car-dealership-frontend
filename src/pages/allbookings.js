@@ -21,6 +21,7 @@ function AllBookings() {
   }
 
   return (
+    <div className="allbookings">
     <div className="table-container-booking">
       <table className="booking-table">
         <thead>
@@ -46,6 +47,7 @@ function AllBookings() {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }

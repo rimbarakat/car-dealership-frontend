@@ -28,7 +28,7 @@ function CarDetails() {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <div className="carZ">
 
       <div>
       <div className="NavBack">
