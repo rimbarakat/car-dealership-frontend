@@ -43,7 +43,7 @@ function App() {
           <Route exact path="/cars/:id/bookings" element={<CarBooking/>}/>
           <Route path="/allbookings" element={<AllBookings/>}/>
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
       </Router>
     </QueryClientProvider>
   );
