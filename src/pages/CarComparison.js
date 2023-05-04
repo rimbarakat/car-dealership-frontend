@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { getCars } from "../api/cars.service";
-import { getCar } from "../api/car.details";
-import { useMutation } from "react-query";
 import ComparisonItem from "../components/comparison-item/comparison-item";
 import '../css/carcomp.css'
 
