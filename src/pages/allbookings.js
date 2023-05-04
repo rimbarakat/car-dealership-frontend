@@ -8,6 +8,7 @@ import { useMutation } from 'react-query';
 
 function AllBookings() {
   const { data, error, isLoading,refetch } = useQuery(["getAllBookings"],getAllBookings);
+  console.log(data);
   const deleteBookingMutation = useMutation(deleteBooking, {
     onError: (error) => {
       console.log(error);
@@ -27,6 +28,7 @@ function AllBookings() {
         <thead>
           <tr>
             {isAdmin() && <th className='booking-th'>User Name</th>}
+            <th className='booking-th'>Car Model</th>
             <th className='booking-th'>Booking Date</th>
             <th className='booking-th'>Booking From</th>
             <th className='booking-th'>Booking To</th>
@@ -39,6 +41,7 @@ function AllBookings() {
           {data && data.map(booking => (
             <tr key={booking.bookingId}>
               {isAdmin() && <td className='booking-td'>{booking.userFullName}</td>}
+              <td className='booking-td'>{booking.model}</td>
               <td className='booking-td'>{booking.bookingDate}</td>
               <td className='booking-td'>{booking.bookingFrom}</td>
               <td className='booking-td'>{booking.bookingTo}</td>

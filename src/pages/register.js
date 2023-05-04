@@ -9,6 +9,8 @@ const [fullName, setFullName] = useState('');
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 const [confirmPassword, setConfirmPassword] = useState('');
+const [address, setAddress] = useState('');
+
 const [error, setError] = useState('');
 const navigate= useNavigate();
 
@@ -22,7 +24,7 @@ const registerMutation = useMutation(register, {
 });
 
 function handleClick(){
-  registerMutation.mutate({ fullName, email, password });
+  registerMutation.mutate({ fullName, email, password, address });
 }
 
 const handleFullNameChange = (event) => {
@@ -73,7 +75,7 @@ if (password !== confirmPassword) {
 
 // TODO: Save the user's information to your database and redirect them to the cars page
 
-console.log(`Full Name: ${fullName}, Email: ${email}, Password: ${password}`);
+console.log(`Full Name: ${fullName}, Email: ${email}, Password: ${password}, address: ${address}`);
 return handleClick();
 };
 
@@ -117,6 +119,10 @@ return (
          value={confirmPassword}
          onChange={handleConfirmPasswordChange}
        />
+       <br></br>
+       <label>Address:</label>
+      <textarea value={address} onChange={(event) => setAddress(event.target.value)} />
+      <br />
 </div>
 <button type="submit" >Register</button>
 </form>
