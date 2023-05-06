@@ -13,7 +13,11 @@ function LoginPage() {
   
   const loginMutation = useMutation(login, {
     onError: (error) => {
-      setError("Wrong credentials"); //not necessarily wrong credentials, but keep like this for now.
+      if (error.response.status === 429) {
+        setError("Too many login attempts. Please try again later.");
+      } else {
+        setError("Wrong credentials");
+      }
     },
     onSuccess: (data) => {
       localStorage.setItem("token", data.accessToken);
