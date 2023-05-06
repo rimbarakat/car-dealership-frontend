@@ -6,6 +6,33 @@
   .allbookings{
     min-height: 575px;
 
+    .statistics {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .stats-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 800px;
+    }
+    
+    .stats-grid > div {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      min-width: 150px;
+    }
+    
+
+
+
+
   }
   body{
     min-height: max-content;
