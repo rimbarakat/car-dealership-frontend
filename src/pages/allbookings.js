@@ -35,26 +35,26 @@ function AllBookings() {
   return (
     <div className="allbookings">
       {statData && (
-  <div className="statistics">
-    <h2>Statistics</h2>
+  <div className="statistics-container">
+    <h2 className="statistics-title">Statistics</h2>
     <div className="stats-grid">
-      <div>
+      <div className="stats-item">
         <h3>Cars Sold</h3>
         <p>Day: {statData.nbCarsSoldDay}</p>
         <p>Month: {statData.nbCarsSoldMonth}</p>
         <p>Year: {statData.nbCarsSoldYear}</p>
       </div>
-      <div>
+      <div className="stats-item">
         <h3>Revenue</h3>
         <p>Day: {statData.revenueDay}</p>
         <p>Month: {statData.revenueMonth}</p>
         <p>Year: {statData.revenueYear}</p>
       </div>
-      <div>
+      <div className="stats-item">
         <h3>Users</h3>
         <p>Total: {statData.nbUsersTotal}</p>
       </div>
-      <div>
+      <div className="stats-item">
         <h3>Total Cars</h3>
         <p>In Dealership: {statData.nbCarsRemaining}</p>
         <p>Sold: {statData.nbCarsSold}</p>
@@ -62,6 +62,7 @@ function AllBookings() {
     </div>
   </div>
 )}
+
 
     <div className="table-container-booking">
       <table className="booking-table">
