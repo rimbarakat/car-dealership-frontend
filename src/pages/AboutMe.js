@@ -58,7 +58,7 @@ function AboutMe() {
   return (
     <div className="login">
     <div className="login-page">
-      {/*isAdmin() &&*/ <h2>About Me</h2>}
+      {<h2>About Me</h2>}
       {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-field">
@@ -84,30 +84,6 @@ function AboutMe() {
 
   );
 }
-// function getUserIdFromToken(token) {
-//   try {
-//     const decoded = jwt.decode(token);
-//     return decoded.userId; // or whatever key you're using for the userId claim
-//   } catch (error) {
-//     console.error('Error decoding token:', error);
-//     return null;
-//   }
-// }
+
 export default AboutMe;
 
-
-{/* <div className='form' onSubmit={handleSubmit}>
-<form >
-{error && <div className="error">{error}</div>}
-  <label>Name:</label>
-  <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-  <br />
-  <label>Email:</label>
-  <input type="email" value={email} disabled={true} onChange={(event) => setEmail(event.target.value)} />
-  <br />
-  <label>Address:</label>
-  <textarea value={address} onChange={(event) => setAddress(event.target.value)} />
-  <br />
-  <button type="submit">Save</button>
-</form>
-</div> */}
