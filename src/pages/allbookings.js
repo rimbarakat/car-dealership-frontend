@@ -6,20 +6,17 @@ import { isAdmin } from '../utils';
 import "../css/allbookings.css";
 import { deleteBooking } from '../api/cars.bookings';
 import { useMutation } from 'react-query';
+import { getStats } from '../api/statistics';
 
 function AllBookings() {
   const { data, error, isLoading,refetch } = useQuery(["getAllBookings"],getAllBookings);
-  const [statisticsData, setStatisticsData] = useState({
-    carsSold: { day: 0, month: 0, year: 0 },
-    revenue: { day: 0, month: 0, year: 0 },
-    users: 0,
-    totalCars: 0,
-  });
+  const [statData, setStatData] = useState(null);
 
-  // Fetch data for the statistics section from your API and update the `statisticsData` state.
-  const fetchStatisticsData = async () => {
-    // Fetch data from your API endpoints and update the state accordingly.
-  };
+  useEffect(() => {
+    getStats().then(setStatData).catch(console.error);
+  }, []);
+
+
   const deleteBookingMutation = useMutation(deleteBooking, {
     onError: (error) => {
       console.log(error);
@@ -29,9 +26,7 @@ function AllBookings() {
     },
   });
 
-  useEffect(() => {
-    fetchStatisticsData();
-  }, []);
+
 
   const handleDelete = async (bookingId, carId) => {
     deleteBookingMutation.mutate(carId, bookingId);
@@ -39,32 +34,35 @@ function AllBookings() {
 
   return (
     <div className="allbookings">
-      <div className="statistics">
-        <h2>Statistics</h2>
-        <div className="stats-grid">
-          <div>
-            <h3>Cars Sold</h3>
-            <p>Day: {statisticsData.carsSold.day}</p>
-            <p>Month: {statisticsData.carsSold.month}</p>
-            <p>Year: {statisticsData.carsSold.year}</p>
-          </div>
-          <div>
-            <h3>Revenue</h3>
-            <p>Day: {statisticsData.revenue.day}</p>
-            <p>Month: {statisticsData.revenue.month}</p>
-            <p>Year: {statisticsData.revenue.year}</p>
-          </div>
-          <div>
-            <h3>Users</h3>
-            <p>Total: {statisticsData.users}</p>
-          </div>
-          <div>
-            <h3>Total Cars</h3>
-            <p>In Dealership: {statisticsData.totalCars}</p>
-            <p>Sold: {statisticsData.carsSold.year}</p>
-          </div>
-        </div>
+      {statData && (
+  <div className="statistics">
+    <h2>Statistics</h2>
+    <div className="stats-grid">
+      <div>
+        <h3>Cars Sold</h3>
+        <p>Day: {statData.nbCarsSoldDay}</p>
+        <p>Month: {statData.nbCarsSoldMonth}</p>
+        <p>Year: {statData.nbCarsSoldYear}</p>
       </div>
+      <div>
+        <h3>Revenue</h3>
+        <p>Day: {statData.revenueDay}</p>
+        <p>Month: {statData.revenueMonth}</p>
+        <p>Year: {statData.revenueYear}</p>
+      </div>
+      <div>
+        <h3>Users</h3>
+        <p>Total: {statData.nbUsersTotal}</p>
+      </div>
+      <div>
+        <h3>Total Cars</h3>
+        <p>In Dealership: {statData.nbCarsRemaining}</p>
+        <p>Sold: {statData.nbCarsSold}</p>
+      </div>
+    </div>
+  </div>
+)}
+
     <div className="table-container-booking">
       <table className="booking-table">
         <thead>
